@@ -263,8 +263,8 @@ char *
 read_new_value (CELLREF row, CELLREF col, char *form, char *val)
 {
   unsigned char *new_bytes;
-  extern double __plinf, __neinf, __nan;
-
+  extern double __plinf, __neinf;
+  /* don't redeclare __nan */ 
   cur_row = row;
   cur_col = col;
   my_cell = find_or_make_cell (cur_row, cur_col);
@@ -348,7 +348,7 @@ read_new_value (CELLREF row, CELLREF col, char *form, char *val)
 	  else if (!stricmp (nname, val))
 	    {
 	      SET_TYP (my_cell, TYP_FLT);
-	      my_cell->cell_flt = __nan;
+	      my_cell->cell_flt = (double)(__neinf+__plinf);
 	    }
 	  else
 	    {

@@ -52,7 +52,8 @@
 const int colmagic[] = {0, 0, 1, -1, 1, -1, 1, -1, 0};
 const int rowmagic[] = {-1, 1, 0, 0, -1, -1, 1, 1, 0};
 
-static char * motion_name[] =  
+/* static caused problem */ 
+char * motion_name[] =  
 {
   "up",
   "down",
@@ -67,7 +68,8 @@ static char * motion_name[] =
 
 
 /* This table ought to be a user parameter. */
-static enum motion_magic complementary_motion[] = 
+/* static create problems */ 
+enum motion_magic complementary_motion[] = 
 {
   magic_right,
   magic_right,
@@ -79,8 +81,8 @@ static enum motion_magic complementary_motion[] =
   magic_right,
   magic_no_motion,
 };
-
-static enum motion_magic opposite_motion[] = 
+/* static created problems */ 
+enum motion_magic opposite_motion[] = 
 {
   magic_down,
   magic_up,

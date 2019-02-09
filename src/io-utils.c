@@ -71,7 +71,7 @@ char numb_oflo[] = "########################################";
 
 double __plinf;
 double __neinf;
-double __nan;
+/* double __nan; is useless */ 
 
 char nname[] = "#NOT_A_NUMBER";
 char iname[] = "#INFINITY";
@@ -125,7 +125,7 @@ init_infinity (void)
   __neinf = divide (-1., 0.);
   (void) signal (SIGFPE, ignore_sig);
 #endif
-  __nan = __plinf + __neinf;
+  /* __nan = __plinf + __neinf; */ 
 }
 
 

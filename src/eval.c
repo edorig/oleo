@@ -562,10 +562,18 @@ eval_expression (expr)
 	  break;
 
 	case CONST_INF:
+	  p->type = TYP_FLT;
+	  p->Float = __plinf;
+	  break;
+	 
 	case CONST_NINF:
+	  p->type = TYP_FLT;
+	  p->Float = __neinf;
+	  break;
+	  
 	case CONST_NAN:
 	  p->type = TYP_FLT;
-	  p->Float = (byte == CONST_INF) ? __plinf : ((byte == CONST_NINF) ? __neinf : __nan);
+	  p->Float = (double) (__neinf+__plinf); 
 	  break;
 
 	case VAR:

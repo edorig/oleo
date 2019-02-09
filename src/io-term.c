@@ -34,7 +34,7 @@ static char *rcsid = "$Id: io-term.c,v 1.51 2001/02/13 23:38:06 danny Exp $";
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
-
+#include <errno.h>
 #include "global.h"
 
 #include "basic.h"
@@ -234,7 +234,7 @@ do_set_option (char *ptr)
 
 		if (Preferences[i].copynext) {
 			ptr += strlen(Preferences[i].name) + 1;
-			((char *)Preferences[i].var) = strdup(ptr);
+			*((char *)Preferences[i].var) = strdup(ptr);
 		} else if (Preferences[i].var)
 			*((int *)Preferences[i].var) = Preferences[i].value;
 
