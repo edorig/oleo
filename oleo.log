@@ -1,0 +1,1359 @@
+make  all-recursive
+make[1] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16 »
+Making all in doc
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/doc »
+/usr/bin/perl ../doc/texi2html ./oleo.texi
+Unescaped left brace in regex is illegal here in regex; marked by <-- HERE in m/\@(x|px|info|)ref{ <-- HERE ([^{}]+)(}?)/ at ../doc/texi2html line 3177.
+Makefile:386: recipe for target 'oleo.html' failed
+make[2]: [oleo.html] Error 2 (ignorée)
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/doc »
+Making all in lib
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/lib »
+bison -y   getdate.y && mv y.tab.c getdate.c
+getdate.y: avertissement: 13 conflits par décalage/réduction [-Wconflicts-sr]
+if test -f y.tab.h; then \
+if cmp -s y.tab.h getdate.h; then rm -f y.tab.h; else mv y.tab.h getdate.h; fi; \
+else :; fi
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../intl    -g -O2 -c getdate.c
+getdate.y: In function ‘ToHour’:
+getdate.y:668:7: warning: implicit declaration of function ‘abort’ [-Wimplicit-function-declaration]
+       abort ();
+       ^~~~~
+getdate.y:668:7: warning: incompatible implicit declaration of built-in function ‘abort’
+getdate.y:668:7: note: include ‘<stdlib.h>’ or provide a declaration of ‘abort’
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../intl    -g -O2 -c getopt.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../intl    -g -O2 -c getopt1.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../intl    -g -O2 -c random.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../intl    -g -O2 -c mktime.c
+rm -f liboleo.a
+ar cru liboleo.a getdate.o getopt.o getopt1.o random.o mktime.o
+ar: le modificateur « u » est ignoré puisque « D » est le défaut (consultez « U »)
+ranlib liboleo.a
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/lib »
+Making all in intl
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/intl »
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c intl-compat.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c bindtextdom.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c dcgettext.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c dgettext.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c gettext.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c finddomain.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c loadmsgcat.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c localealias.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c textdomain.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c l10nflist.c
+gcc -DHAVE_CONFIG_H -I. -I. -I..     -g -O2 	-DLOCALEDIR=\"/usr/local/share/locale\" 	-DGNULOCALEDIR=\"/usr/local/share/locale\" 	-DLOCALE_ALIAS_PATH=\"\" -c explodename.c
+rm -f libintl.a
+ar cru libintl.a intl-compat.o bindtextdom.o dcgettext.o dgettext.o gettext.o finddomain.o loadmsgcat.o localealias.o textdomain.o l10nflist.o explodename.o 
+ar: le modificateur « u » est ignoré puisque « D » est le défaut (consultez « U »)
+ranlib libintl.a
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/intl »
+Making all in src
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/src »
+/bin/sh ./ylwrap "bison -y" parse.y y.tab.c parse.c y.tab.h parse.h --  -d
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c parse.c
+In file included from parse.y:54:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from parse.y:47:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'parse.o' failed
+make[2]: [parse.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c byte-compile.c
+In file included from byte-compile.c:55:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from byte-compile.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'byte-compile.o' failed
+make[2]: [byte-compile.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c eval.c
+In file included from eval.c:59:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from eval.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'eval.o' failed
+make[2]: [eval.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c ref.c
+In file included from ref.c:36:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from ref.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+ref.c: In function ‘read_new_value’:
+ref.c:266:35: error: ‘__nan’ redeclared as different kind of symbol
+   extern double __plinf, __neinf, __nan;
+                                   ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from ref.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'ref.o' failed
+make[2]: [ref.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c decompile.c
+In file included from decompile.c:33:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from decompile.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'decompile.o' failed
+make[2]: [decompile.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c sort.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c regions.c
+In file included from regions.c:34:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from regions.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from regions.c:42:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'regions.o' failed
+make[2]: [regions.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c utils.c
+In file included from cmd.h:30:0,
+                 from utils.c:39:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from utils.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'utils.o' failed
+make[2]: [utils.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c lists.c
+In file included from lists.c:35:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/malloc.h:22,
+                 from lists.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from lists.c:61:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'lists.o' failed
+make[2]: [lists.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-term.c
+In file included from io-term.c:38:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from io-term.c:33:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from io-term.c:68:0:
+mdi.h:35:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif _MDI_H_
+        ^~~~~~~
+io-term.c: In function ‘do_set_option’:
+io-term.c:237:33: error: lvalue required as left operand of assignment
+    ((char *)Preferences[i].var) = strdup(ptr);
+                                 ^
+io-term.c: In function ‘main’:
+io-term.c:990:3: warning: implicit declaration of function ‘bindtextdomain’ [-Wimplicit-function-declaration]
+   bindtextdomain(PACKAGE, LOCALEDIR);
+   ^~~~~~~~~~~~~~
+io-term.c:991:3: warning: implicit declaration of function ‘textdomain’; did you mean ‘nexttoward’? [-Wimplicit-function-declaration]
+   textdomain(PACKAGE);
+   ^~~~~~~~~~
+   nexttoward
+Makefile:318: recipe for target 'io-term.o' failed
+make[2]: [io-term.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-utils.c
+In file included from io-utils.h:23:0,
+                 from io-utils.c:36:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io-utils.c:33:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from io-utils.c:43:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+io-utils.c:74:8: error: ‘__nan’ redeclared as different kind of symbol
+ double __nan;
+        ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io-utils.c:33:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'io-utils.o' failed
+make[2]: [io-utils.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-x11.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c window.c
+In file included from window.c:30:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from window.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from window.c:35:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'window.o' failed
+make[2]: [window.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-edit.c
+In file included from io-edit.c:39:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io-edit.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'io-edit.o' failed
+make[2]: [io-edit.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c line.c
+In file included from line.c:31:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from line.c:30:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'line.o' failed
+make[2]: [line.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c key.c
+In file included from key.h:22:0,
+                 from key.c:30:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from key.c:28:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'key.o' failed
+make[2]: [key.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c format.c
+In file included from format.c:28:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from format.c:28:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'format.o' failed
+make[2]: [format.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c funcs.c
+In file included from funcs.c:33:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from funcs.c:33:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'funcs.o' failed
+make[2]: [funcs.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c hash.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c ir.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-curses.c
+In file included from io-curses.c:46:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io-curses.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'io-curses.o' failed
+make[2]: [io-curses.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c font.c
+In file included from font.h:24:0,
+                 from font.c:33:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from font.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'font.o' failed
+make[2]: [font.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c display.c
+In file included from display.h:23:0,
+                 from display.c:30:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from display.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'display.o' failed
+make[2]: [display.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c init.c
+In file included from init.c:31:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from init.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from init.c:32:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'init.o' failed
+make[2]: [init.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c sylk.c
+In file included from io-generic.h:22:0,
+                 from sylk.c:35:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from sylk.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from sylk.c:40:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'sylk.o' failed
+make[2]: [sylk.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c oleofile.c
+In file included from io-generic.h:22:0,
+                 from oleofile.c:33:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from oleofile.c:30:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from oleofile.c:36:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'oleofile.o' failed
+make[2]: [oleofile.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c sc.c
+In file included from sc.c:35:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from sc.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'sc.o' failed
+make[2]: [sc.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c list.c
+In file included from list.c:35:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from list.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'list.o' failed
+make[2]: [list.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c busi.c
+In file included from busi.c:34:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from busi.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'busi.o' failed
+make[2]: [busi.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c string.c
+In file included from string.c:38:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from string.c:31:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'string.o' failed
+make[2]: [string.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c cells.c
+In file included from cells.c:37:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../lib/obstack.h:150,
+                 from cells.c:33:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from cells.c:45:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'cells.o' failed
+make[2]: [cells.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c cmd.c
+In file included from io-motif.h:28:0,
+                 from cmd.c:37:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from cmd.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'cmd.o' failed
+make[2]: [cmd.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c basic.c
+In file included from basic.c:31:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from basic.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+basic.c:55:15: error: static declaration of ‘motion_name’ follows non-static declaration
+ static char * motion_name[] =
+               ^~~~~~~~~~~
+In file included from basic.c:32:0:
+basic.h:39:15: note: previous declaration of ‘motion_name’ was here
+ extern char * motion_name[9];
+               ^~~~~~~~~~~
+basic.c:70:26: error: static declaration of ‘complementary_motion’ follows non-static declaration
+ static enum motion_magic complementary_motion[] =
+                          ^~~~~~~~~~~~~~~~~~~~
+In file included from basic.c:32:0:
+basic.h:40:26: note: previous declaration of ‘complementary_motion’ was here
+ extern enum motion_magic complementary_motion[9];
+                          ^~~~~~~~~~~~~~~~~~~~
+basic.c:83:26: error: static declaration of ‘opposite_motion’ follows non-static declaration
+ static enum motion_magic opposite_motion[] =
+                          ^~~~~~~~~~~~~~~
+In file included from basic.c:32:0:
+basic.h:41:26: note: previous declaration of ‘opposite_motion’ was here
+ extern enum motion_magic opposite_motion[9];
+                          ^~~~~~~~~~~~~~~
+Makefile:318: recipe for target 'basic.o' failed
+make[2]: [basic.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c args.c
+In file included from args.c:30:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from args.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'args.o' failed
+make[2]: [args.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c stub.c
+In file included from stub.c:38:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from stub.c:38:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'stub.o' failed
+make[2]: [stub.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c input.c
+In file included from input.c:29:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from input.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'input.o' failed
+make[2]: [input.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c info.c
+In file included from info.c:29:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from info.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'info.o' failed
+make[2]: [info.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c help.c
+In file included from help.c:29:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from help.c:29:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'help.o' failed
+make[2]: [help.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c graph.c
+In file included from graph.c:40:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from graph.c:37:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'graph.o' failed
+make[2]: [graph.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c plot.c
+In file included from plot.c:37:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/ctype.h:25,
+                 from plot.c:36:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'plot.o' failed
+make[2]: [plot.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c forminfo.c
+/bin/sh ./ylwrap "bison -y" posixtm.y y.tab.c posixtm.c y.tab.h posixtm.h --  -d
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c posixtm.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c date.c
+In file included from date.c:34:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from date.c:32:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'date.o' failed
+make[2]: [date.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c xrdb.c
+In file included from xrdb.c:62:0:
+/usr/include/X11/Xlib.h:1396:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1484:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* display_name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1512:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* program */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1513:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* option */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1516:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1538:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* atom_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1573:20: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+     XColor _Xconst * /* foreground_color */,
+                    ^
+/usr/include/X11/Xlib.h:1582:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1607:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* data */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1657:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* pattern */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1663:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* pattern */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1711:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1750:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:1991:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* color_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2075:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst unsigned char* /* data */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2328:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2338:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst XChar2b* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2410:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2420:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst XChar2b* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2578:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* position */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2579:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* default_position */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2593:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2594:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* message */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2595:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* default_string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2786:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* color_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2853:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* spec */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2858:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* parsestring */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2972:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:2998:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3009:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst XChar2b* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3034:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* filename */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3043:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* filename */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3056:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst unsigned char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3199:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* dash_list */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3248:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* icon_name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3280:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst unsigned char* /* map */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3371:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* bytes */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3378:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* bytes */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3398:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* window_name */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3404:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* color */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3416:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3426:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst XChar2b* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3436:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3442:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst XChar2b* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3543:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* filename */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3560:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char*  /* res_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3561:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char*  /* res_class */
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3611:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* base_font_name_list */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3654:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3660:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst wchar_t* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3666:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3672:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3680:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst wchar_t* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3688:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3696:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3708:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst wchar_t* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3720:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3767:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3778:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst wchar_t* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3789:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3800:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3811:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst wchar_t* /* text */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xlib.h:3822:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* text */,
+     ^~~~~~~
+     const
+In file included from xrdb.c:63:0:
+/usr/include/X11/Xutil.h:580:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* data */
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:620:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* window_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:621:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* icon_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:680:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* window_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:681:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* icon_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:692:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* window_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:693:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* icon_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:815:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* user_geometry */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xutil.h:816:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* default_geometry */,
+     ^~~~~~~
+     const
+In file included from xrdb.c:65:0:
+/usr/include/X11/Xresource.h:92:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char*  /* string */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:96:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char*  /* string */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:120:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:125:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* string */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:192:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* specifier */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:193:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* type */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:201:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* value */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:206:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* specifier */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:207:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* value */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:212:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* line */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:225:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* str_name */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:226:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* str_class */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:267:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* filename */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:271:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char*  /* filename */,
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:277:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* data */  /*  null terminated string */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:282:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* filename */
+     ^~~~~~~
+     const
+/usr/include/X11/Xresource.h:350:5: error: unknown type name ‘_Xconst’; did you mean ‘const’?
+     _Xconst char* /* name */,
+     ^~~~~~~
+     const
+xrdb.c: In function ‘get_system_app’:
+xrdb.c:250:8: warning: implicit declaration of function ‘XrmGetFileDatabase’; did you mean ‘XrmGetDatabase’? [-Wimplicit-function-declaration]
+   db = XrmGetFileDatabase (path);
+        ^~~~~~~~~~~~~~~~~~
+        XrmGetDatabase
+xrdb.c:250:6: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   db = XrmGetFileDatabase (path);
+      ^
+xrdb.c: In function ‘get_user_app’:
+xrdb.c:297:6: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   db = XrmGetFileDatabase (path);
+      ^
+xrdb.c: In function ‘get_user_db’:
+xrdb.c:311:10: warning: implicit declaration of function ‘XrmGetStringDatabase’; did you mean ‘XrmGetDatabase’? [-Wimplicit-function-declaration]
+     db = XrmGetStringDatabase (xdefs);
+          ^~~~~~~~~~~~~~~~~~~~
+          XrmGetDatabase
+xrdb.c:311:8: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     db = XrmGetStringDatabase (xdefs);
+        ^
+xrdb.c:318:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       db = XrmGetFileDatabase (xdefault);
+          ^
+xrdb.c: In function ‘get_environ_db’:
+xrdb.c:339:6: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   db = XrmGetFileDatabase (p);
+      ^
+xrdb.c: In function ‘x_load_resources’:
+xrdb.c:359:19: warning: implicit declaration of function ‘XrmStringToQuark’; did you mean ‘XrmStringToClass’? [-Wimplicit-function-declaration]
+     x_rm_string = XrmStringToQuark (XrmStringType);
+                   ^~~~~~~~~~~~~~~~
+                   XrmStringToClass
+xrdb.c:362:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   rdb = XrmGetStringDatabase ("");
+       ^
+xrdb.c:392:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       db = XrmGetStringDatabase (xrm_string);
+          ^
+Makefile:318: recipe for target 'xrdb.o' failed
+make[2]: [xrdb.o] Error 1 (ignorée)
+sed -f ./gpl.sed <../COPYING >gpl.h
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c io-motif.c
+In file included from io-motif.c:70:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io-motif.c:35:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from io-motif.c:107:0:
+mdi.h:35:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif _MDI_H_
+        ^~~~~~~
+io-motif.c: In function ‘sciplot_thunk’:
+io-motif.c:429:23: warning: implicit declaration of function ‘char_to_q_char’; did you mean ‘char_to_string’? [-Wimplicit-function-declaration]
+  char * str = (char *)char_to_q_char (print_cell (cp));
+                       ^~~~~~~~~~~~~~
+                       char_to_string
+io-motif.c:429:15: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  char * str = (char *)char_to_q_char (print_cell (cp));
+               ^
+io-motif.c: In function ‘PuSelectPlotter’:
+io-motif.c:1359:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  PuPlotter = (int)client;
+              ^
+io-motif.c: In function ‘MotifSetPrintPage’:
+io-motif.c:2010:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int i = (int) client;
+          ^
+io-motif.c: In function ‘MotifCreatePrintDialog’:
+io-motif.c:2259:23: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    MotifSetPrintPage, (XtPointer)i);
+                       ^
+io-motif.c: In function ‘SetDefaultFileCB’:
+io-motif.c:2366:3: warning: implicit declaration of function ‘list_set_options’; did you mean ‘set_options’? [-Wimplicit-function-declaration]
+   list_set_options(1, s);
+   ^~~~~~~~~~~~~~~~
+   set_options
+io-motif.c: In function ‘DefaultFileDialogReset’:
+io-motif.c:2415:9: warning: implicit declaration of function ‘list_get_separator’; did you mean ‘XK_KP_Separator’? [-Wimplicit-function-declaration]
+  s[0] = list_get_separator();
+         ^~~~~~~~~~~~~~~~~~
+         XK_KP_Separator
+io-motif.c: In function ‘Yeah’:
+io-motif.c:3845:42: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  Global->MotifGlobal->fmt = formats_list[(int) client];
+                                          ^
+io-motif.c: In function ‘MotifDateFormat’:
+io-motif.c:3856:16: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  date_format = (int) client;
+                ^
+io-motif.c: In function ‘CreateFormatsDialog’:
+io-motif.c:4014:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    MotifDateFormat, (XtPointer)i);
+                     ^
+io-motif.c: In function ‘FormatsDialog’:
+io-motif.c:4100:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int c = (int)client, ac;
+          ^
+io-motif.c: In function ‘DoUserPreferences’:
+io-motif.c:4355:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int c = (int)client, ac;
+          ^
+io-motif.c: In function ‘SaveUserPreferences’:
+io-motif.c:4389:2: warning: implicit declaration of function ‘save_preferences’; did you mean ‘SaveUserPreferences’? [-Wimplicit-function-declaration]
+  save_preferences();
+  ^~~~~~~~~~~~~~~~
+  SaveUserPreferences
+io-motif.c: In function ‘ConfigureMySQL’:
+io-motif.c:4561:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  int c = (int)client, ac;
+          ^
+Makefile:318: recipe for target 'io-motif.o' failed
+make[2]: [io-motif.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c appres.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c fallback.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c mysql.c
+In file included from mysql.c:34:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from global.h:23,
+                 from mysql.c:34:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'mysql.o' failed
+make[2]: [mysql.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c print.c
+In file included from display.h:23:0,
+                 from print.c:55:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from print.c:51:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'print.o' failed
+make[2]: [print.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c postscript.c
+In file included from display.h:23:0,
+                 from postscript.c:45:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from postscript.c:41:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'postscript.o' failed
+make[2]: [postscript.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c pcl.c
+In file included from pcl.c:40:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from pcl.c:26:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'pcl.o' failed
+make[2]: [pcl.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c epson.c
+In file included from epson.c:36:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from epson.c:34:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'epson.o' failed
+make[2]: [epson.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c prtext.c
+In file included from prtext.c:36:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from prtext.c:34:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'prtext.o' failed
+make[2]: [prtext.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c afm.c
+In file included from cmd.h:30:0,
+                 from afm.c:48:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from afm.c:41:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'afm.o' failed
+make[2]: [afm.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c mdi.c
+In file included from io-term.h:24:0,
+                 from mdi.c:38:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from mdi.c:34:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+In file included from mdi.c:38:0:
+io-term.h:47:24: error: array type has incomplete element type ‘struct cmd_func’
+ extern struct cmd_func cmd_funcs[];
+                        ^~~~~~~~~
+Makefile:318: recipe for target 'mdi.o' failed
+make[2]: [mdi.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c gsl.c
+In file included from gsl.c:41:0:
+global.h:211:33: error: ‘__nan’ redeclared as different kind of symbol
+ extern double __plinf, __neinf, __nan;
+                                 ^~~~~
+In file included from /usr/include/features.h:424:0,
+                 from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from sysdef.h:22,
+                 from gsl.c:39:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:201:1: note: previous declaration of ‘__nan’ was here
+ __MATHCALLX (nan,, (const char *__tagb), (__const__));
+ ^
+Makefile:318: recipe for target 'gsl.o' failed
+make[2]: [gsl.o] Error 1 (ignorée)
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c plotter.c
+gcc -DHAVE_CONFIG_H -I. -I. -I.. -I.. -I. -I../lib -I../intl     -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"' -c legend.c
+gcc  -g -O2 -DLOCALEDIR=\"/usr/local/share/locale\"  	-DBUILD_PREFIX='"'/usr/local'"'  -o oleo  parse.o byte-compile.o eval.o ref.o decompile.o sort.o regions.o utils.o lists.o io-term.o io-utils.o io-x11.o window.o io-edit.o line.o key.o format.o funcs.o hash.o ir.o io-curses.o font.o display.o init.o sylk.o oleofile.o sc.o list.o busi.o string.o cells.o cmd.o basic.o args.o stub.o input.o info.o help.o graph.o plot.o forminfo.o posixtm.o date.o xrdb.o io-motif.o appres.o fallback.o mysql.o print.o postscript.o pcl.o epson.o prtext.o afm.o mdi.o gsl.o plotter.o legend.o -lSM -lICE -lXm  -lXbae    ../lib/liboleo.a ../intl/libintl.a  -lXpm -lXm   -lSM -lICE -lXt -lX11  -lm -lncurses -L/usr/local/lib  
+gcc: error: parse.o: Aucun fichier ou dossier de ce type
+gcc: error: byte-compile.o: Aucun fichier ou dossier de ce type
+gcc: error: eval.o: Aucun fichier ou dossier de ce type
+gcc: error: ref.o: Aucun fichier ou dossier de ce type
+gcc: error: decompile.o: Aucun fichier ou dossier de ce type
+gcc: error: regions.o: Aucun fichier ou dossier de ce type
+gcc: error: utils.o: Aucun fichier ou dossier de ce type
+gcc: error: lists.o: Aucun fichier ou dossier de ce type
+gcc: error: io-term.o: Aucun fichier ou dossier de ce type
+gcc: error: io-utils.o: Aucun fichier ou dossier de ce type
+gcc: error: window.o: Aucun fichier ou dossier de ce type
+gcc: error: io-edit.o: Aucun fichier ou dossier de ce type
+gcc: error: line.o: Aucun fichier ou dossier de ce type
+gcc: error: key.o: Aucun fichier ou dossier de ce type
+gcc: error: format.o: Aucun fichier ou dossier de ce type
+gcc: error: funcs.o: Aucun fichier ou dossier de ce type
+gcc: error: io-curses.o: Aucun fichier ou dossier de ce type
+gcc: error: font.o: Aucun fichier ou dossier de ce type
+gcc: error: display.o: Aucun fichier ou dossier de ce type
+gcc: error: init.o: Aucun fichier ou dossier de ce type
+gcc: error: sylk.o: Aucun fichier ou dossier de ce type
+gcc: error: oleofile.o: Aucun fichier ou dossier de ce type
+gcc: error: sc.o: Aucun fichier ou dossier de ce type
+gcc: error: list.o: Aucun fichier ou dossier de ce type
+gcc: error: busi.o: Aucun fichier ou dossier de ce type
+gcc: error: string.o: Aucun fichier ou dossier de ce type
+gcc: error: cells.o: Aucun fichier ou dossier de ce type
+gcc: error: cmd.o: Aucun fichier ou dossier de ce type
+gcc: error: basic.o: Aucun fichier ou dossier de ce type
+gcc: error: args.o: Aucun fichier ou dossier de ce type
+gcc: error: stub.o: Aucun fichier ou dossier de ce type
+gcc: error: input.o: Aucun fichier ou dossier de ce type
+gcc: error: info.o: Aucun fichier ou dossier de ce type
+gcc: error: help.o: Aucun fichier ou dossier de ce type
+gcc: error: graph.o: Aucun fichier ou dossier de ce type
+gcc: error: plot.o: Aucun fichier ou dossier de ce type
+gcc: error: date.o: Aucun fichier ou dossier de ce type
+gcc: error: xrdb.o: Aucun fichier ou dossier de ce type
+gcc: error: io-motif.o: Aucun fichier ou dossier de ce type
+gcc: error: mysql.o: Aucun fichier ou dossier de ce type
+gcc: error: print.o: Aucun fichier ou dossier de ce type
+gcc: error: postscript.o: Aucun fichier ou dossier de ce type
+gcc: error: pcl.o: Aucun fichier ou dossier de ce type
+gcc: error: epson.o: Aucun fichier ou dossier de ce type
+gcc: error: prtext.o: Aucun fichier ou dossier de ce type
+gcc: error: afm.o: Aucun fichier ou dossier de ce type
+gcc: error: mdi.o: Aucun fichier ou dossier de ce type
+gcc: error: gsl.o: Aucun fichier ou dossier de ce type
+Makefile:352: recipe for target 'oleo' failed
+make[2]: [oleo] Error 1 (ignorée)
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/src »
+Making all in m4
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/m4 »
+make[2]: rien à faire pour « all ».
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/m4 »
+Making all in po
+Making all in Xresources
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/Xresources »
+make[2]: rien à faire pour « all ».
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/Xresources »
+Making all in examples
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/examples »
+make[2]: rien à faire pour « all ».
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/examples »
+Making all in afm
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16/afm »
+make[2]: rien à faire pour « all ».
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16/afm »
+make[2] : on entre dans le répertoire « /home/edmond/software/oleo-1.99.16 »
+make[2] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16 »
+make[1] : on quitte le répertoire « /home/edmond/software/oleo-1.99.16 »
