@@ -30,9 +30,9 @@ MKINSTALLDIRS = $(top_srcdir)/./mkinstalldirs
 
 CC = gcc
 GENCAT = 
-GMSGFMT = PATH=../src:$$PATH /usr/bin/msgfmt
-MSGFMT = /usr/bin/msgfmt
-XGETTEXT = PATH=../src:$$PATH /usr/bin/xgettext
+GMSGFMT = PATH=../src:$$PATH 
+MSGFMT = 
+XGETTEXT = PATH=../src:$$PATH 
 MSGMERGE = PATH=../src:$$PATH msgmerge
 
 DEFS = -DHAVE_CONFIG_H
@@ -53,9 +53,9 @@ POTFILES = \
 	../src/io-term.c \
 	../src/io-motif.c \
 
-CATALOGS =  en.gmo nl.gmo fr.gmo
-CATOBJEXT = .gmo
-INSTOBJEXT = .mo
+CATALOGS = 
+CATOBJEXT = 
+INSTOBJEXT = 
 
 .SUFFIXES:
 .SUFFIXES: .c .o .po .pox .gmo .mo .msg .cat
@@ -79,7 +79,7 @@ INSTOBJEXT = .mo
 	  && rm -f $@ && $(GENCAT) $@ $*.msg
 
 
-all: all-yes
+all: all-no
 
 all-yes: $(srcdir)/cat-id-tbl.c $(CATALOGS)
 all-no:
@@ -109,7 +109,7 @@ $(srcdir)/stamp-cat-id: $(srcdir)/$(PACKAGE).pot
 
 install: install-exec install-data
 install-exec:
-install-data: install-data-yes
+install-data: install-data-no
 install-data-no: all
 install-data-yes: all
 	if test -r "$(MKINSTALLDIRS)"; then \

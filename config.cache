@@ -79,7 +79,7 @@ ac_cv_lib_m_main=${ac_cv_lib_m_main='yes'}
 ac_cv_lib_mysqlclient_mysql_connect=${ac_cv_lib_mysqlclient_mysql_connect='no'}
 ac_cv_lib_mytinfo_tputs=${ac_cv_lib_mytinfo_tputs='no'}
 ac_cv_lib_ncurses_waddch=${ac_cv_lib_ncurses_waddch='yes'}
-ac_cv_lib_plot_pl_openpl_r=${ac_cv_lib_plot_pl_openpl_r='no'}
+ac_cv_lib_plot_pl_openpl_r=${ac_cv_lib_plot_pl_openpl_r='yes'}
 ac_cv_lib_sciplot_sp_begin_plot=${ac_cv_lib_sciplot_sp_begin_plot='no'}
 ac_cv_lib_xbase_main=${ac_cv_lib_xbase_main='no'}
 ac_cv_lib_xdb_main=${ac_cv_lib_xdb_main='no'}
@@ -126,10 +126,10 @@ am_cv_val_LC_MESSAGES=${am_cv_val_LC_MESSAGES='yes'}
 gt_cv_func_gettext_libc=${gt_cv_func_gettext_libc='yes'}
 ice_cv_sciplot_includes=${ice_cv_sciplot_includes='none'}
 ice_cv_sciplot_libraries=${ice_cv_sciplot_libraries='none'}
-ice_cv_xmhtml_includes=${ice_cv_xmhtml_includes='none'}
+ice_cv_xmhtml_includes=${ice_cv_xmhtml_includes=''}
 ice_cv_xmhtml_libraries=${ice_cv_xmhtml_libraries='/usr/lib/x86_64-linux-gnu'}
 nls_cv_force_use_gnu_gettext=${nls_cv_force_use_gnu_gettext='no'}
-nls_cv_header_intl=${nls_cv_header_intl=''}
-nls_cv_header_libgt=${nls_cv_header_libgt=''}
+nls_cv_header_intl=${nls_cv_header_intl='intl/libintl.h'}
+nls_cv_header_libgt=${nls_cv_header_libgt='intl/libgettext.h'}
 nls_cv_use_gnu_gettext=${nls_cv_use_gnu_gettext='no'}
 oleo_cv_sys_errlist=${oleo_cv_sys_errlist='yes'}

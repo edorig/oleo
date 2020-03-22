@@ -358,8 +358,7 @@ print_tick_label (char *labelbuf, const Axis *axis, const Transform *transform, 
 		free(s);		/* FIX ME */
 		break;
 	case SP_TICK_DEFAULT:
-	default:
-		sp_default_tick_label(labelbuf, axis, transform, val);
+	  default  : sp_default_tick_label(labelbuf, axis, transform, val);
 	}
 }
 
@@ -2639,7 +2638,7 @@ sp_plot_point(Multigrapher *mg, const Point *point)
 	case SP_PLOT_PIE:
 		sp_pie_plot_point(mg, point);
 		break;
-	default:
+	default : ; 
 		/* ?? */
 	}
 }
@@ -2770,7 +2769,7 @@ sp_begin_plot(Multigrapher *mg, double scale, double trans_x, double trans_y)
 	case SP_PLOT_PIE:
 		sp_pie_begin_graph(mg, scale, trans_x, trans_y);
 		break;
-	default:
+	default : ; 
 		/* ??? */
 	}
 
@@ -2790,7 +2789,7 @@ sp_end_plot(Multigrapher *mg)
 	case SP_PLOT_PIE:
 		sp_pie_end_graph(mg);
 		break;
-	default:
+	default : break; 
 		/* ??? */
 	}
 }

@@ -1,0 +1,20 @@
+Build 
+the mktime test in configure fails miserably 
+the configure script generates a buggy texi2html perl script. 
+SciPlot is not found by configure
+
+Running Oleo
+When using a non-C locale where the decimal separator is the
+comma ',' and not the decimal point '.' 
+1) Graphs do not work whether with Plotutils or SciPlot 
+After defining a graph, oleo crashes. 
+2) Saving to a file leaves some lines 
+Gr000,00000
+...
+Gr110,00000
+in the .oleo file that will crash oleo when loading it. 
+The solution is to replace Grnn0,000 with Grnn0.000 to obtain
+a valid .oleo file 
+
+Workaround around these 2 bugs: start oleo with  LANG=C /path/oleo
+

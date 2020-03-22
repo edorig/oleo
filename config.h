@@ -80,13 +80,13 @@
 /* #undef X_DISPLAY_MISSING */
 
 /* Define to 1 if NLS is requested.  */
-#define ENABLE_NLS 1
+/* #undef ENABLE_NLS */
 
 /* Define as 1 if you have catgets and don't want to use GNU gettext.  */
 /* #undef HAVE_CATGETS */
 
 /* Define as 1 if you have gettext and don't want to use GNU gettext.  */
-#define HAVE_GETTEXT 1
+/* #undef HAVE_GETTEXT */
 
 /* Define if your locale.h file contains LC_MESSAGES.  */
 #define HAVE_LC_MESSAGES 1
@@ -103,14 +103,14 @@
 /* LessTif or Motif */
 #define HAVE_MOTIF 1
 /* #undef HAVE_SciPlot_H */
-/* #undef HAVE_XmHTML_H */
+#define HAVE_XmHTML_H 1
 #define HAVE_XBAE 1
 /* #undef HAVE_XLT */
 /* #undef HAVE_XLT_FONTCHOOSER */
 #define HAVE_XPM 1
 
 /* GNU Plotutils */
-/* #undef HAVE_LIBPLOT */
+#define HAVE_LIBPLOT 1
 /* #undef HAVE_LIBPLOT_2_2 */
 /* #undef HAVE_LIBSCIPLOT */
 
@@ -149,7 +149,7 @@
 #define HAVE_ALARM 1
 
 /* Define if you have the dcgettext function.  */
-#define HAVE_DCGETTEXT 1
+/* #undef HAVE_DCGETTEXT */
 
 /* Define if you have the ftime function.  */
 #define HAVE_FTIME 1
