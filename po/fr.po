@@ -25,7 +25,7 @@ msgstr ""
 #: src/io-term.c:817
 #, c-format
 msgid "Usage: %s [OPTION]... [FILE]...\n"
-msgstr "Utilisage: %s [OPTION]... [FILE]...\n"
+msgstr "Utilisation: %s [OPTION]... [FILE]...\n"
 
 #: src/io-term.c:820
 msgid ""
@@ -85,7 +85,7 @@ msgstr "Erreur dans les initialisations (erreur de programmation !).\n"
 #: src/io-term.c:1194 src/io-term.c:1196
 #, c-format
 msgid "   error occured in init file %s near line %d."
-msgstr "   erreur dans le fichier d'initialisation %s pres de ligne %d."
+msgstr "   erreur dans le fichier d'initialisation %s pres de la ligne %d."
 
 #: src/io-term.c:1215 src/io-term.c:1216
 #, c-format
@@ -95,21 +95,21 @@ msgstr ", erreur en lisant '%s'\n"
 #: src/io-term.c:1223 src/io-term.c:1224
 #, c-format
 msgid "Can't open %s: %s\n"
-msgstr "Je ne peux pas ouvrir '%s'.\n"
+msgstr "Impossible d'ouvrir '%s'.\n"
 
 #: src/io-motif.c:722
 msgid "Fit Print Area"
-msgstr ""
+msgstr "Ajuster la zone d'impression"
 
 # , c-format
 #: src/io-motif.c:791
 #, c-format
 msgid "Conversion error: cannot convert '%s' to a %s\n"
-msgstr "Conversion error: cannot convert '%s' to a %s\n"
+msgstr "Erreur de conversion: impossible de convertir '%s' en %s\n"
 
 #: src/io-motif.c:946 src/io-motif.c:1111
 msgid "Cannot find XmNuserData\n"
-msgstr "Internal error: Cannot find XmNuserData\n"
+msgstr "Erreur interne: XmNuserData introuvable\n"
 
 #: src/io-motif.c:985 src/io-motif.c:1008 src/io-motif.c:1031
 #: src/io-motif.c:1053 src/io-motif.c:1070 src/io-motif.c:1955
@@ -121,7 +121,7 @@ msgstr "range"
 
 #: src/io-motif.c:1391
 msgid "Plotter Type"
-msgstr "Type de plotter"
+msgstr "Type de traceur"
 
 #: src/io-motif.c:1436 src/io-motif.c:2927
 msgid "*.oleo"
@@ -129,15 +129,15 @@ msgstr ""
 
 #: src/io-motif.c:1648
 msgid "X Axis Tick Label Type"
-msgstr ""
+msgstr "Axe X: type de marqueur"
 
 #: src/io-motif.c:1703
 msgid "Y Axis Tick Label Type"
-msgstr ""
+msgstr "Axe Y: type de marqueur"
 
 #: src/io-motif.c:1949
 msgid "Internal error: can't find what to print to\n"
-msgstr "Erreur interne: je ne sais pas á quoi imprimer\n"
+msgstr "Erreur interne: je ne sais pas avec quoi imprimer\n"
 
 #: src/io-motif.c:2043
 msgid "*.out"
@@ -148,23 +148,23 @@ msgstr "*.out"
 msgid ""
 "Value of defaultPrintTo resource is invalid, should be one of %s, %s, or %s\n"
 msgstr ""
-"Valeur de defaultPrintTo est incorrecte, doit etre une de %s, %s, ou %s.\n"
+"Valeur de defaultPrintTo est incorrecte, doit etre soit %s, %s, ou %s.\n"
 
 #: src/io-motif.c:2157
 msgid "Select Printer"
-msgstr "Selectionnez une imprimante"
+msgstr "Selectionner une imprimante"
 
 #: src/io-motif.c:2243
 msgid "Paper Format"
-msgstr ""
+msgstr "Format du papier"
 
 #: src/io-motif.c:2268
 msgid "Printer Language"
-msgstr ""
+msgstr "Langage de l'imprimante"
 
 #: src/io-motif.c:2444
 msgid "File Format"
-msgstr ""
+msgstr "Format de fichier"
 
 # , c-format
 #. enough
@@ -177,56 +177,56 @@ msgstr "[Oleo: %s]"
 #: src/io-motif.c:2887
 #, c-format
 msgid "Read file '%s'\n"
-msgstr "Read file '%s'\n"
+msgstr "Fichier '%s' lu\n"
 
 #: src/io-motif.c:2954
 msgid "Choose a file to load"
-msgstr ""
+msgstr "Choisir le fichier à charger"
 
 #: src/io-motif.c:3060 src/io-motif.c:5933
 msgid ""
 "There are unsaved changes.\n"
 "Do you want to quit anyway ?"
 msgstr ""
-"Quelques changements n'ont pas été écrites.\n"
-"Voulez-vous quitter ?"
+"Les modifications n'ont pas été sauvées.\n"
+"Voulez-vous quitter quand même ?"
 
 # , c-format
 #: src/io-motif.c:3096
 #, c-format
 msgid "OleoOpenForWrite: can't move %s to %s"
-msgstr ""
+msgstr "OleoOpenForWrite: impossible de renommer %s en %s"
 
 # , c-format
 #: src/io-motif.c:3108
 #, c-format
 msgid "OleoOpenForWrite: couldn't open file '%s' for write"
-msgstr ""
+msgstr "OleoOpenForWrite: imposssible d'ouvrir le fichier '%s' en écriture"
 
 # , c-format
 #: src/io-motif.c:3124
 #, c-format
 msgid "ReallySaveCB(%s): couldn't open file for writing"
-msgstr ""
+msgstr "ReallySaveCB(%s): impossible d'ouvrir le fichier en écriture"
 
 #. handle error
 #: src/io-motif.c:3133
 msgid "ReallySaveCB: file close failed"
-msgstr ""
+msgstr "ReallySaveCB: échec de la fermeture du fichier"
 
 # , c-format
 #: src/io-motif.c:3138
 #, c-format
 msgid "Saved file '%s'\n"
-msgstr "Saved file '%s'\n"
+msgstr "Fichier '%s' sauvegardé\n"
 
 #: src/io-motif.c:3153
 msgid "ReallySaveCB: couldn't figure out file to save into"
-msgstr ""
+msgstr "ReallySaveCB: impossible de déterminer le fichier de sauvegarde"
 
 #: src/io-motif.c:3179
 msgid "Choose a file to save in"
-msgstr ""
+msgstr "Choisir le fichier de sauvegarde"
 
 #: src/io-motif.c:3312 src/io-motif.c:3347
 msgid ""
@@ -238,11 +238,11 @@ msgstr ""
 #: src/io-motif.c:3355
 #, c-format
 msgid "Help requested on '%s'"
-msgstr ""
+msgstr "Aide su '%s' demandée"
 
 #: src/io-motif.c:3357
 msgid "Help requested on using Oleo"
-msgstr ""
+msgstr "Aide sur l'utilisation d'Oleo demandée"
 
 #: src/io-motif.c:3595
 msgid "OK"
@@ -250,19 +250,19 @@ msgstr ""
 
 #: src/io-motif.c:3596
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/io-motif.c:3769
 msgid "Copy a region"
-msgstr ""
+msgstr "Copier une région"
 
 #: src/io-motif.c:3777
 msgid "Copy Values"
-msgstr ""
+msgstr "Copier les valeurs"
 
 #: src/io-motif.c:3785
 msgid "Move"
-msgstr ""
+msgstr "Déplacer"
 
 #: src/io-motif.c:3898
 msgid "Formats :"
@@ -270,22 +270,22 @@ msgstr ""
 
 #: src/io-motif.c:3900
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #. FMT_DEF
 #: src/io-motif.c:3901
 msgid "Hidden"
-msgstr ""
+msgstr "Caché"
 
 #. FMT_HID
 #: src/io-motif.c:3902
 msgid "Graph"
-msgstr ""
+msgstr "Graphe"
 
 #. FMT_GPH
 #: src/io-motif.c:3903
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #. FMT_GEN
 #: src/io-motif.c:3904
@@ -295,29 +295,29 @@ msgstr ""
 #. FMT_DOL
 #: src/io-motif.c:3905
 msgid "Comma"
-msgstr ""
+msgstr "Virgule"
 
 #. FMT_CMA
 #: src/io-motif.c:3906
 msgid "Percent"
-msgstr ""
+msgstr "Pour Cent"
 
 #. FMT_PCT
 #: src/io-motif.c:3907
 msgid "Integer"
-msgstr ""
+msgstr "Entier"
 
 #: src/io-motif.c:3908
 msgid "Decimal"
-msgstr ""
+msgstr "Décimal"
 
 #: src/io-motif.c:3909
 msgid "Fixed"
-msgstr ""
+msgstr "Fixe"
 
 #: src/io-motif.c:3910
 msgid "Exponent"
-msgstr ""
+msgstr "Exposant"
 
 #: src/io-motif.c:3911
 msgid "Date"
@@ -326,19 +326,19 @@ msgstr "Date"
 #. FMT_DATE
 #: src/io-motif.c:3912
 msgid "User-1"
-msgstr ""
+msgstr "Personnalisé-1"
 
 #: src/io-motif.c:3913
 msgid "User-2"
-msgstr ""
+msgstr "Personnalisé-2"
 
 #: src/io-motif.c:3914
 msgid "User-3"
-msgstr ""
+msgstr "Personnalisé-3"
 
 #: src/io-motif.c:3915
 msgid "User-4"
-msgstr ""
+msgstr "Personnalisé-4"
 
 #: src/io-motif.c:3989
 msgid "Date Format"
@@ -346,4 +346,4 @@ msgstr "Format de date"
 
 #: src/io-motif.c:4791 src/io-motif.c:5906
 msgid "XmProcessTraversal failed\n"
-msgstr "Internal error: XmProcessTraversal failed\n"
+msgstr "Erreur interne: XmProcessTraversal a échoué\n"

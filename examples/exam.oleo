@@ -1,0 +1,64 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Résultats de l'examen"
+C;r2;K"Nom"
+C;r3;K"Dubois"
+C;r4;K"Dupont"
+C;r5;K"Durand"
+C;r6;K"Carrier"
+C;r7;K"Daquin"
+C;r8;K"Legrand"
+C;r9;K"Lepetit"
+C;r10;K"Martin"
+C;r11;K"Bouzigues"
+C;r13;K"Moyenne"
+C;c2;r2;K"Prénom"
+C;r3;K"Jean"
+C;r4;K"Paul"
+C;r5;K"Pierre"
+C;r6;K"Mathieu"
+C;r7;K"Marc"
+C;r8;K"Pierre"
+C;r9;K"Achille"
+C;r10;K"Ulysse"
+C;r11;K"Guy"
+C;c3;r2;K"Note /20"
+C;r3;K14
+C;r4;K17
+C;r5;K12
+C;r6;K7
+C;r7;K19
+C;r8;K16
+C;r9;K13
+C;r10;K20
+C;r11;K10
+C;r13;Eavg(r3:11c3);K14.222222222222221
+O;status 2
+W;N1;A13 3;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
+E

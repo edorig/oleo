@@ -1,0 +1,39 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Some random text"
+C;r2;Eexp(1);K2.718281828459045
+C;c2;r1;Epi();K3.141592653589793
+C;r2;Eexp(2);K7.38905609893065
+C;c3;r1;Esqrt(2);K1.414213562373095
+C;r2;Elog(5);K1.6094379124341
+C;c4;r1;Esqrt(7);K2.64575131106459
+C;r2;E(1 + sqrt(5)) / 2;K1.618033988749894
+O;status 2
+W;N1;A2 4;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
+E

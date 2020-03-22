@@ -1,0 +1,56 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;a0;ticks 1
+C;c1;r1;K1.000000e-34
+C;r2;K6.620000e-34
+C;r3;K1.600000e-19
+C;r4;K9.500000e-31
+C;c2;r1;Erc[-1] * rc[-1];K1.000000e-68
+C;r2;Er[+1]c[-1] ^ 2 / rc[-1];K0.000038670694864
+C;r3;E1 / r[-1]c;K25859.375
+C;r4;Er[-1]c[-1] / r[-2]c[-1];K2.416918e+14
+C;r6;K"Pas d'accents"
+C;c3;r1;Eexp(1);K2.718281828459045
+C;r2;Esqrt(2);K1.414213562373095
+C;r3;E(1 + sqrt(5)) / 2;K1.618033988749894
+C;r4;Eexp(-20);K2.061154e-09
+C;r6;K"Pas de bug du point decimal"
+C;c4;r1;Epi();K3.141592653589793
+C;r2;Esin(r[-1]c / 4);K0.707106781186547
+C;r3;Etan(r[-2]c / 2);K1.633124e+16
+C;r4;E0 / 0;K#DIV_BY_ZERO
+C;c5;r1;Eexp(20);K4.851652e+08
+C;r2;Eexp(r[-1]c);K#INFINITY
+C;r3;E-exp(r[-2]c);K#MINUS_INFINITY
+C;r4;Er[-2]c + r[-1]c;K#NOT_A_NUMBER
+C;c6;r2;K"Constante de Planck"
+C;r3;K"Electron charge"
+C;r4;K"Electron mass"
+O;status 2
+W;N1;A6 3;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
+E

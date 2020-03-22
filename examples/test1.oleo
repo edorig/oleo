@@ -1,0 +1,54 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;a0;ticks 1
+C;c1;r1;K1
+C;r2;K2
+C;r3;K3
+C;r4;K4
+C;r5;K5
+C;r6;K90
+C;r7;K45
+C;c2;r1;Erc[-1] + r[+1]c[-1];K3
+C;r2;Erc[-1] * r[+1]c[-1];K6
+C;r3;Erc[-1] - r[-2]c[-1];K2
+C;r4;Erc[-1] / r[-2]c[-1];K2
+C;r5;Er[-1]c[-1] ^ rc[-1];K1024
+C;r6;Esin(rc[-1]);K0.893996663600557
+C;r7;Eatan(1);K0.785398163397448
+C;c3;r1;Er[+2]c[-2] ^ (1 / 3);K1.442249570307408
+C;r2;Esqrt(r[+1]c[-2]);K1.732050807568877
+C;r3;Elog(r[+3]c);K1
+C;r4;Etan(r[+3]c[-2]);K1.619775190543861
+C;r5;Etan(r[+2]c);K-1,224647e-16
+C;r6;Eexp(r[-5]c[-2]);K2.718281828459045
+C;r7;E4 * rc[-1];K3.141592653589793
+C;c4;r1;Erc[-1] ^ 3;K2.999999999999999
+C;r2;Egamma(A1);K#UNK_FUNC
+O;status 2
+W;N1;A2 4;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr00 0.000000
+Gr01 0.000000
+Gr10 0.000000
+Gr11 0.000000
+Ga01
+Ga11
+Go0
+Gm00 (null)
+Gm10 (null)
+Dn
+Dh
+Du
+E

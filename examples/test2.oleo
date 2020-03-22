@@ -1,0 +1,55 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Auteur"
+C;r2;K"Homère"
+C;r3;K"Homère"
+C;r4;K"Euclide"
+C;r5;K"Caius Julius Caesar"
+C;r6;K"François Rabelais"
+C;r7;K"Molière"
+C;r8;K"Denis Diderot et Jean Le Rond d'Alembert (éditeurs)"
+C;r9;K"Honoré de Balzac"
+C;r10;K"Émile Zola"
+C;r11;K"Anatole France"
+C;r12;K"Gustave Flaubert"
+C;c4;r1;K"Oeuvre"
+C;r2;K"Iliade"
+C;r3;K"Odyssée"
+C;r4;K"Éléments de géometrie"
+C;r5;K"Commentaires sur la Guerre des Gaules"
+C;r6;K"Pantagruel"
+C;r7;K"Le médecin malgré lui"
+C;r8;K"Encyclopédie"
+C;r9;K"La Comédie Humaine"
+C;r10;K"Les Rougon Macquart"
+C;r11;K"L'île des pingouins"
+C;r12;K"Salammbô"
+O;status 2
+W;N1;A1 1;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr00 0.000000
+Gr01 0.000000
+Gr10 0.000000
+Gr11 0.000000
+Ga01
+Ga11
+Go0
+Gm00 (null)
+Gm10 (null)
+Dn
+Dh
+Du
+E

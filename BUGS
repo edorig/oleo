@@ -3,6 +3,7 @@ the mktime test in configure fails miserably
 the configure script generates a buggy texi2html perl script. 
 SciPlot is not found by configure
 
+
 Running Oleo
 When using a non-C locale where the decimal separator is the
 comma ',' and not the decimal point '.' 
@@ -15,6 +16,16 @@ Gr110,00000
 in the .oleo file that will crash oleo when loading it. 
 The solution is to replace Grnn0,000 with Grnn0.000 to obtain
 a valid .oleo file 
+3) When entering constants such as 1.6e-19, they are first transformed 
+to 1,6e-19 then Oleo complains of a parse error. 
 
-Workaround around these 2 bugs: start oleo with  LANG=C /path/oleo
+Workaround around these 3 bugs: start oleo with  LANG=C /path/oleo
+
+A fix for bug 2) using setlocale(3) has been found in the current version.
+
+Printing to file in ps format results in lines overwritten on each other. 
+Printing in text format causes a coredump
+
+Choosing sc,sylk,dbf format in "Save As" or "Open" menu causes a crash. 
+
 

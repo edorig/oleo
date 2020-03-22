@@ -1,0 +1,54 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Name"
+C;r2;K"Speed of light"
+C;r3;K"Constant of gravitation"
+C;r4;K"Planck constant"
+C;r5;K"Electron charge"
+C;r6;K"Electron mass"
+C;r7;K"Proton mass"
+C;r8;K"Avogadro constant"
+C;c3;r1;K"Value"
+C;r2;K299792458
+C;r3;K6.670000e-11
+C;r4;K6.620000e-34
+C;r5;K1.600000e-19
+C;r6;K9.100000e-31
+C;r7;K1.600000e-27
+C;r8;K6.020000e+23
+C;c4;r1;K"Unit"
+C;r2;K"m/s"
+C;r3;K"m^3kg^{-1}s^{-2}"
+C;r4;K"J s"
+C;r5;K"C"
+C;r6;K"kg"
+C;r7;K"kg"
+O;status 2
+W;N1;A1 3;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
+E
