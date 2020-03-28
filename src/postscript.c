@@ -274,7 +274,8 @@ void PostScriptFont(char *family, char *slant, int size, FILE *fp)
 void PostScriptNewLine(int ht, FILE *fp)
 {
 	x = border_width;
-	y -= ht;
+	/*	y -= ht; */
+	y-=(2*ht); 
 }
 
 void PostScriptPaperSize(int wid, int ht, FILE *fp)

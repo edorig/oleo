@@ -5,6 +5,12 @@ SciPlot is not found by configure
 
 
 Running Oleo
+=============
+
+
+Buggy Internationalization/Localization
+----------------------------------------
+
 When using a non-C locale where the decimal separator is the
 comma ',' and not the decimal point '.' 
 1) Graphs do not work whether with Plotutils or SciPlot 
@@ -18,14 +24,32 @@ The solution is to replace Grnn0,000 with Grnn0.000 to obtain
 a valid .oleo file 
 3) When entering constants such as 1.6e-19, they are first transformed 
 to 1,6e-19 then Oleo complains of a parse error. 
+4) Postscript printing fails because coordinates are not written in the 
+form Postscript printers/interpreters expect 
 
-Workaround around these 3 bugs: start oleo with  LANG=C /path/oleo
+Workaround around all these bugs: start oleo with  LANG=C /path/oleo
 
 A fix for bug 2) using setlocale(3) has been found in the current version.
 
-Printing to file in ps format results in lines overwritten on each other. 
-Printing in text format causes a coredump
+printing
+--------
+See above for non-C locale.
+Printing to file in ps format results in lines overwritten on each other. Editing the PS file, and doubling the ordinates shift produces a legible file. The part of postscript.c that calculate line heights contains an error. 
+I have doubled the line height in postscript.c and now lines are not overwritten. Don't try to print more than 96 lines.
 
+Printing UTF-8 or ISO8859-1 characters produces garbage.
+Printing in text format causes a coredump. surprising as prtext.c does nothing.
+GDB backtrace is
+
+0x00005555555bdc68 in print_region_cmd (print=0x7fffffffd5b8, 
+    fp=0x55555592c8a0) at print.c:352
+#2  0x00005555555b3dad in ReallyPrintCB (w=<optimized out>, 
+    client=<optimized out>, call=<optimized out>) at io-motif.c:1973
+
+a message AfmFontWidth:failed is visible.
+
+Format selection for files
+--------------------------
 Choosing sc,sylk,dbf format in "Save As" or "Open" menu causes a crash. 
 
 

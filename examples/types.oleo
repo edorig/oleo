@@ -1,29 +1,59 @@
 # This file was created by GNU Oleo
-# format 2.0 (requires Oleo 1.6.14 or higher)
+# format 2.1 (requires Oleo 1.99.9 or higher)
 F;DGFL8
 O;auto;background;a0;ticks 1
-C;c1;r1;K0.234
-F;r2;F%1D
+C;c1;r1;K"Numbers"
+C;r2;K0.234
+F;r3;F%1D
 C;K0.234
-C;r4;Enow();K921102484
-F;r5;Fd2D
-C;Enow();K921102484
-F;r7;F,2D
+C;r5;Enow();K1585407654
+F;r6;Fd2D
+C;Enow();K1585407654
+F;r8;F,2D
 C;K123456789
-F;r8;F$1D
+F;r9;F$1D
 C;K123456789
-F;c3;r1;F*D
-C;K1
+C;c2;r1;K"Booleans"
+C;r2;Erc[-1] >= rc[+1];K#FALSE
+C;r3;Er[+1]c[+1] >= rc[-1];K#TRUE
+C;r5;Erc[-1] = r[+2]c[+1];K#FALSE
+C;r6;Erc[-1] != rc[+1];K#TRUE
+C;c3;r1;K"Integers"
 F;r2;F*D
-C;K3
+C;K1
 F;r3;F*D
-C;K4
+C;K3
 F;r4;F*D
-C;K6
+C;K4
 F;r5;F*D
+C;K6
+F;r6;F*D
 C;K5
+C;r8;Eavg(r[-3:-7]c);K3.5
 O;status 2
-W;N1;A6 1;C7 0 7;Ostandout
+W;N1;A9 3;C7 0 7;Ostandout
 GDx""
 GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
 E

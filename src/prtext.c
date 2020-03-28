@@ -56,6 +56,7 @@ void TextPageFooter(char *str, FILE *fp)
 void TextField(char *str, int wid, int rightborder,
 			int xpoints, int xchars, FILE *fp)
 {
+  if (strlen(str)>0) {fprintf(fp,"%s\t",str); };  
 }
 
 void TextBorders(FILE *fp)
@@ -78,6 +79,9 @@ void TextPrinterPaperSize(int wid, int ht, FILE *fp)
 void TextSetEncoding(char *encoding)
 {
 }
+void TextSetBorder(int width, int height, FILE *fp)
+{
+}
 
 struct PrintDriver TextPrintDriver = {
 	"Text",
@@ -90,5 +94,6 @@ struct PrintDriver TextPrintDriver = {
 	&TextFont,
 	&TextNewLine,
 	&TextPrinterPaperSize,
-	&TextSetEncoding
+	&TextSetEncoding,
+	&TextSetBorder
 };
