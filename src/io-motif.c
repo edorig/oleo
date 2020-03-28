@@ -2820,12 +2820,13 @@ void FileFormatCB(Widget w, XtPointer client, XtPointer call)
 	p = file_get_pattern(f);
 	if (p == NULL)
 		p = f;
-
+	/*	fprintf(stderr,"In FileFormatCB p=%s f=%s\n",p,f); */  
 	strcpy(Global->MotifGlobal->fileformat, f);
 
 	strcpy(Global->MotifGlobal->pattern, "*.");
+	/* EO: When you add another output format, check in io-motif.h that the length of pattern for extension +2 does not exceed the dimension of char *pattern[...]. Uncomment the fprintf to check that the pattern is set right. */  	
 	strcat(Global->MotifGlobal->pattern, p);
-
+	/*	fprintf(stderr,"In FileFormatCB p=%s f=%s\n",p,f); */  
 	xms = XmStringCreateSimple(Global->MotifGlobal->pattern);
 	XtVaSetValues(fsd, XmNpattern, xms, NULL);
 	XmStringFree(xms);

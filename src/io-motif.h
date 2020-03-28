@@ -66,7 +66,7 @@ struct MotifGlobalType {
 	char	*early_msg_text;
 	char	input_buf[1024];
 	int	input_buf_allocated, chars_buffered;
-	char	fileformat[10], pattern[13];
+	char	fileformat[10], pattern[20];
 	int	fmt, havea0;
 	Boolean	**selectedcells, newcall, needrecalculate;
 	Widget	XLogToggle, xticklblmenu, xticklbloption, xtickfmt;

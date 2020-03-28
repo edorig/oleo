@@ -46,10 +46,36 @@ GDB backtrace is
 #2  0x00005555555b3dad in ReallyPrintCB (w=<optimized out>, 
     client=<optimized out>, call=<optimized out>) at io-motif.c:1973
 
-a message AfmFontWidth:failed is visible.
+a message AfmFontWidth:failed is visible. This is solved, the problem was an undefined function in the Driver for Text printing. 
 
 Format selection for files
 --------------------------
 Choosing sc,sylk,dbf format in "Save As" or "Open" menu causes a crash. 
+This is partially solved. The char pattern[10] was too short to accomodate
+"*.[Cc][Ss][Vv]" (2+3*4=14 characters).
+
+Saving to csv still causes a crash.
+
+gdb gives 
+Program received signal SIGSEGV, Segmentation fault.
+stricmp (s1=s1@entry=0x5555555cea04 "oleo", s2=s2@entry=0x0) at utils.c:573
+573	      chr2 = isupper (*scan2) ? tolower (*scan2) : *scan2;
+(gdb) list
+568	  scan1 = s1;
+569	  scan2 = s2;
+570	  do
+571	    {
+572	      chr1 = isupper (*scan1) ? tolower (*scan1) : *scan1;
+573	      chr2 = isupper (*scan2) ? tolower (*scan2) : *scan2;
+574	      scan1++;
+575	      scan2++;
+576	    }
+577	  while (chr1 && chr1 == chr2);
+with backtrace 
+#0  stricmp (s1=s1@entry=0x5555555cea04 "oleo", s2=s2@entry=0x0) at utils.c:573
+#1  0x00005555555901d0 in write_file_generic_2 (fp=0x55555592f140, rng=0x0, 
+    format=0x0) at io-utils.c:1345
+#2  0x0000555555590342 in write_file_generic (fp=0x55555592f140, rng=0x0, 
+    format=<optimized out>) at io-utils.c:1383
 
 
