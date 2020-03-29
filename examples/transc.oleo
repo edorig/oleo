@@ -1,0 +1,64 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Hyperbolic"
+C;r2;Ecosh(1);K1.543080634815243
+C;r3;Esinh(1);K1.175201193643801
+C;r4;Etanh(1);K0.761594155955764
+C;r5;Er3c1 / r2c1;K0.761594155955764
+C;r6;Er2c1 ^ 2 - r3c1 ^ 2;K1
+C;c2;r1;K"Gamma"
+C;r2;Egamma(1);K1
+C;r3;Egamma(0.5);K1.772453850905516
+C;r4;Egamma(2);K1
+C;r5;Egamma(3);K2
+C;r6;Egamma(4);K6
+C;r7;Egamma(5);K24
+C;r8;Egamma(6);K120
+C;r9;Egamma(0.5) ^ 2;K3.141592653589793
+C;c3;r1;K"Erf"
+C;r2;Eerf(0);K0
+C;r3;Eerf(0.5);K0.520499877813046
+C;r4;Eerf(1);K0.842700792949714
+C;r5;Eerf(2);K0.995322265018952
+C;r6;Eerf(3);K0.999977909503001
+C;r7;Eerf(10);K1
+C;c4;r1;K"Cube root"
+C;r2;Ecbrt(0);K0
+C;r3;Ecbrt(1);K1
+C;r4;Ecbrt(8);K2
+C;r5;Ecbrt(27);K3
+C;r6;Ecbrt(64);K4
+C;c5;r1;K"Inverse hyperbolic"
+C;r2;Eacosh(r2c1);K1
+C;r3;Easinh(r3c1);K1
+C;r4;Eatanh(r4c1);K0.999999999999999
+C;r5;Eatanh(r4c1);K0.999999999999999
+O;status 2
+W;N1;A5 5;C7 0 7;Ostandout
+GDx""
+GDy""
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00(null)
+Gm10(null)
+Dn
+Dh
+Du
+E

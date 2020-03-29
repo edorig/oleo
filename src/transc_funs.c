@@ -25,38 +25,19 @@ void do_cbrt(p)
 {
   double arg0=p[0].Float;
   p->Float=cbrt(arg0);
-  p->Type= TYP_FLT;
 }
 
-void do_sinh(p)
-     struct value *p;
-{
-  double arg0=p[0].Float;
-  p->Float=sinh(arg0);
-  p->Type= TYP_FLT;
-}
-
-void do_tanh(p)
-     struct value *p;
-{
-  double arg0=p[0].Float;
-  p->Float=tanh(arg0);
-  p->Type= TYP_FLT;
-}
 void do_cosh(p)
      struct value *p;
 {
   double arg0=p[0].Float;
   p->Float=cosh(arg0);
-  p->Type= TYP_FLT;
 }
-
 void do_sinh(p)
      struct value *p;
 {
   double arg0=p[0].Float;
   p->Float=sinh(arg0);
-  p->Type= TYP_FLT;
 }
 
 void do_tanh(p)
@@ -64,7 +45,6 @@ void do_tanh(p)
 {
   double arg0=p[0].Float;
   p->Float=tanh(arg0);
-  p->Type= TYP_FLT;
 }
 
 void do_acosh(p)
@@ -72,7 +52,7 @@ void do_acosh(p)
 {
   double arg0=p[0].Float;
   p->Float=acosh(arg0);
-  p->Type= TYP_FLT;
+  p->type= TYP_FLT;
 }
 
 void do_asinh(p)
@@ -80,7 +60,7 @@ void do_asinh(p)
 {
   double arg0=p[0].Float;
   p->Float=asinh(arg0);
-  p->Type= TYP_FLT;
+  // p->Type= TYP_FLT;
 }
 
 void do_atanh(p)
@@ -88,7 +68,7 @@ void do_atanh(p)
 {
   double arg0=p[0].Float;
   p->Float=atanh(arg0);
-  p->Type= TYP_FLT;
+  // p->Type= TYP_FLT;
 }
 
 void do_erf(p)
@@ -96,15 +76,15 @@ void do_erf(p)
 {
   double arg0=p[0].Float;
   p->Float=erf(arg0);
-  p->Type= TYP_FLT;
+  // p->Type= TYP_FLT;
 }
 
 void do_gamma(p)
      struct value *p;
 {
   double arg0=p[0].Float;
-  p->Float=gamma(arg0);
-  p->Type= TYP_FLT;
+  p->Float=tgamma(arg0);
+  // p->Type= TYP_FLT;
 }
 
 
@@ -121,3 +101,8 @@ struct function transc_funs[]=
     {C_FN1,X_A1,"F",do_gamma,"gamma"},
     {0, 0, "", 0, 0},
           };
+
+int init_transc_function_count(void) 
+{
+        return sizeof(transc_funs) / sizeof(struct function) - 1;
+}

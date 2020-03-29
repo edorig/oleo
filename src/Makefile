@@ -144,7 +144,7 @@ XBSRC =
 #oleo_LINK = $(CXXLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
 oleo_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
 
-oleo_SOURCES = parse.y byte-compile.c eval.c ref.c  decompile.c sort.c regions.c utils.c lists.c  io-term.c io-utils.c io-x11.c window.c io-edit.c userpref.h  line.c key.c format.c funcs.c  hash.c ir.c io-curses.c font.c display.c init.c  sylk.c oleofile.c sc.c list.c busi.c string.c cells.c  cmd.c basic.c args.c  stub.c input.c info.c help.c  graph.c plot.c  forminfo.c posixtm.y date.c xrdb.c  $(GUI) $(XBSRC) $(MYSQL)  print.c postscript.c pcl.c epson.c prtext.c afm.c  mdi.c gsl.c  ${SCIPLOT_SRC}
+oleo_SOURCES = parse.y byte-compile.c eval.c ref.c  decompile.c sort.c regions.c utils.c lists.c  io-term.c io-utils.c io-x11.c window.c io-edit.c userpref.h  line.c key.c format.c funcs.c  hash.c ir.c io-curses.c font.c display.c init.c  sylk.c oleofile.c sc.c list.c busi.c string.c cells.c  cmd.c basic.c args.c  stub.c input.c info.c help.c  graph.c plot.c  forminfo.c posixtm.y date.c xrdb.c  $(GUI) $(XBSRC) $(MYSQL)  print.c postscript.c pcl.c epson.c prtext.c afm.c  mdi.c gsl.c  ${SCIPLOT_SRC} transc_funs.c 
 
 
 # MYLD = @GTK_LIBS@
@@ -219,7 +219,7 @@ xrdb$U.o io-motif$U.o appres$U.o \
 fallback$U.o mysql$U.o print$U.o \
 postscript$U.o pcl$U.o epson$U.o \
 prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-plotter$U.o legend$U.o
+plotter$U.o legend$U.o transc_funs$U.o
 ##oleo_OBJECTS =  parse$U.o \
 ##byte-compile$U.o eval$U.o ref$U.o \
 ##decompile$U.o sort$U.o regions$U.o \
