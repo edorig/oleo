@@ -78,4 +78,5 @@ with backtrace
 #2  0x0000555555590342 in write_file_generic (fp=0x55555592f140, rng=0x0, 
     format=<optimized out>) at io-utils.c:1383
 
+The cause was an unimplemented function to write CSV files. Using the function to write lists using ',' as separator solves this problem.
 

@@ -22,69 +22,69 @@ Oleo.geometry:			800x600
 *messagesSW.height:		70
 # Menu System
 # File
-*filecascade.labelString:	File
-*open.labelString:		Open
-*close.labelString:		Close
-*save.labelString:		Save
-*saveas.labelString:		Save As
-*print.labelString:		Print
-*quit.labelString:		Quit
+*filecascade.labelString:	Fichier
+*open.labelString:		Ouvrir
+*close.labelString:		Fermer
+*save.labelString:		Enregistrer
+*saveas.labelString:		Enregistrer sous
+*print.labelString:		Imprimer
+*quit.labelString:		Quitter
 # Edit
-*editcascade.labelString:	Edit
-*undo.labelString:		Undo
-*copy.labelString:		Copy
-*cut.labelString:		Cut
-*paste.labelString:		Paste
-*insert.labelString:		Insert
-*delete.labelString:		Delete
-*move.labelString:		Move
-*recalculate.labelString:	Recalculate
+*editcascade.labelString:	Edition
+*undo.labelString:		Annuler
+*copy.labelString:		Copier
+*cut.labelString:		Couper
+*paste.labelString:		Coller
+*insert.labelString:		Inserer
+*delete.labelString:		Supprimer
+*move.labelString:		Deplacer
+*recalculate.labelString:	Recalculaer
 *setregion.labelString:	Set Region
 *setmark.labelString:		Set Mark
-*gotocell.labelString:		Goto Cell
+*gotocell.labelString:		Aller en 
 # Style
 *stylecascade.labelString:	Style
 *format.labelString:		Format
-*alignment.labelString:	Alignment
-*font.labelString:		Font
-*width.labelString:		Width
-*height.labelString:		Height
+*alignment.labelString:	Alignement
+*font.labelString:		Police
+*width.labelString:		Largeur
+*height.labelString:		Hauteur
 *protection.labelString:	Protection
 # Options
 *optionscascade.labelString:	Options
-*a0.labelString:		Represent Columns as A0
-*edges.labelString:		Edges
-*autorecalc.labelString:	Automatically Recalculate
+*a0.labelString:		Representer les colonnes avec A0
+*edges.labelString:		Bords
+*autorecalc.labelString:	Recalculer Automatiquement 
 *loadhooks.labelString:	Run load hooks
-*statusline.labelString:	Status line on top
-*backup.labelString:		Backup old file when saving
-*backupcopy.labelString:	Backup by copy, not rename
+*statusline.labelString:	Ligne d etat en haut
+*backup.labelString:		Conserver ancien fichier 
+*backupcopy.labelString:	Conserver un copiant
 *formats.labelString:		Formats
-*printoptions.labelString:	Print Options
-*defaultfileformat.labelString:	Default File Format
-*setvariable.labelString:		Set Variable
-*showvariable.labelString:		Show Variable
-*listvariables.labelString:		List Variables
-*showoptions.labelString:		Show Options
+*printoptions.labelString:	Options d Impression
+*defaultfileformat.labelString:	Format de fichier par defaut
+*setvariable.labelString:		Definirt Variable
+*showvariable.labelString:		Afficher Variable
+*listvariables.labelString:		Liste des Variables
+*showoptions.labelString:		Afficher
 # Graph
-*graphcascade.labelString:	Graph
-*define.labelString:		Define Graph
-*show.labelString:		Show Graph
-*graphmenu.print.labelString:	Print Graph
+*graphcascade.labelString:	Graphe
+*define.labelString:		Definir Graphe
+*show.labelString:		Afficher Graphe
+*graphmenu.print.labelString:	Imprimer Graphe
 # Help
-*helpcascade.labelString:	Help
-*about.labelString:		About Oleo
+*helpcascade.labelString:	Aide
+*about.labelString:		A propos d Oleo
 *version.labelString:		Version
-*using.labelString:		Using Oleo
-*math.labelString:		Math Functions
-*trig.labelString:		Trigonometric Functions
-*stats.labelString:		Statistical Functions
-*bool.labelString:		Boolean Functions
-*string.labelString:		String Functions
-*struct.labelString:		Structure Functions
-*search.labelString:		Search Functions
-*bus.labelString:		Business Functions
-*date.labelString:		Date Functions
+*using.labelString:		Utilisation d Oleo
+*math.labelString:		Fonctions Mathematiques
+*trig.labelString:		Fonctions Trigonometriques
+*stats.labelString:		Fonctions Statistiques
+*bool.labelString:		Fonctions Booleennes 
+*string.labelString:		Fonctions Chaines de caracteres
+*struct.labelString:		Fonctions de Structure
+*search.labelString:		Fonctions de Recherche
+*bus.labelString:		Fonctions Financieres
+*date.labelString:		Fonctions de Date
 *expr.labelString:		Expressions
 *error.labelString:		Error Values
 *helpmenu.format.labelString:	Formats
@@ -96,15 +96,15 @@ Oleo.geometry:			800x600
 # Help Dialog
 *versionD*Help*labelString:	GPL
 # Configuration Dialogs
-*configureGraph_popup*.title:			Configure the Graph
-*configureGraphFrame*cap1.labelString:		X Axis
-*configureGraphFrame*cap2.labelString:		Data 1
-*configureGraphFrame*cap3.labelString:		Data 2
-*configureGraphFrame*cap4.labelString:		Data 3
-*configureGraphFrame*cap5.labelString:		Data 4
+*configureGraph_popup*.title:			Configurer le Graphe
+*configureGraphFrame*cap1.labelString:		Axe X
+*configureGraphFrame*cap2.labelString:		Donnees 1
+*configureGraphFrame*cap3.labelString:		Donnees 2
+*configureGraphFrame*cap4.labelString:		Donnees 3
+*configureGraphFrame*cap5.labelString:		Donnees 4
 *configureGraph*ok.labelString:		OK
-*configureGraph*cancel.labelString:		Cancel
-*configureGraph*help.labelString:		Help
+*configureGraph*cancel.labelString:		Annuler
+*configureGraph*help.labelString:		Aide 
 # Mnemonics
 *filecascade.mnemonic:		F
 *open.mnemonic:		O
