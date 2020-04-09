@@ -31,6 +31,9 @@ Workaround around all these bugs: start oleo with  LANG=C /path/oleo
 
 A fix for bug 2) using setlocale(3) has been found in the current version.
 
+In the C locale, accented caracters é or è are displayed as \350 or \351. 
+With a fr_FR.ISO8859-1 locale and CDE, the accented characters are displayed correctly. 
+
 printing
 --------
 See above for non-C locale.
@@ -48,15 +51,72 @@ GDB backtrace is
 
 a message AfmFontWidth:failed is visible. This is solved, the problem was an undefined function in the Driver for Text printing. 
 
+Accented characters don't print correctly. é is represented as \351
+and è as \350 in the Motif interface. 
+When printing, Ø appears in the place of é, Lslash in the place of è. PostScript documentation indicates that in standard encoding 
+351 is Oslash 350 Lslash. In Isolatin1 Encoding é is 351 è is 350. 
+So Oleo is using wrongly the standard Encoding in Postscript files.
+
+Borrowing this code from XFig EPS files solves the issue.
+
+/reencdict 12 dict def /ReEncode { reencdict begin
+/newcodesandnames exch def /newfontname exch def /basefontname exch def
+/basefontdict basefontname findfont def /newfont basefontdict maxlength dict def
+basefontdict { exch dup /FID ne { dup /Encoding eq
+{ exch dup length array copy newfont 3 1 roll put }
+{ exch newfont 3 1 roll put } ifelse } { pop pop } ifelse } forall
+newfont /FontName newfontname put newcodesandnames aload pop
+128 1 255 { newfont /Encoding get exch /.notdef put } for
+newcodesandnames length 2 idiv { newfont /Encoding get 3 1 roll put } repeat
+newfontname newfont definefont pop end } def
+
+/isovec [
+8#055 /minus 8#200 /grave 8#201 /acute 8#202 /circumflex 8#203 /tilde
+8#204 /macron 8#205 /breve 8#206 /dotaccent 8#207 /dieresis
+8#210 /ring 8#211 /cedilla 8#212 /hungarumlaut 8#213 /ogonek 8#214 /caron
+8#220 /dotlessi 8#230 /oe 8#231 /OE
+8#240 /space 8#241 /exclamdown 8#242 /cent 8#243 /sterling
+8#244 /currency 8#245 /yen 8#246 /brokenbar 8#247 /section 8#250 /dieresis
+8#251 /copyright 8#252 /ordfeminine 8#253 /guillemotleft 8#254 /logicalnot
+8#255 /hyphen 8#256 /registered 8#257 /macron 8#260 /degree 8#261 /plusminus
+8#262 /twosuperior 8#263 /threesuperior 8#264 /acute 8#265 /mu 8#266 /paragraph
+8#267 /periodcentered 8#270 /cedilla 8#271 /onesuperior 8#272 /ordmasculine
+8#273 /guillemotright 8#274 /onequarter 8#275 /onehalf
+8#276 /threequarters 8#277 /questiondown 8#300 /Agrave 8#301 /Aacute
+8#302 /Acircumflex 8#303 /Atilde 8#304 /Adieresis 8#305 /Aring
+8#306 /AE 8#307 /Ccedilla 8#310 /Egrave 8#311 /Eacute
+8#312 /Ecircumflex 8#313 /Edieresis 8#314 /Igrave 8#315 /Iacute
+8#316 /Icircumflex 8#317 /Idieresis 8#320 /Eth 8#321 /Ntilde 8#322 /Ograve
+8#323 /Oacute 8#324 /Ocircumflex 8#325 /Otilde 8#326 /Odieresis 8#327 /multiply
+8#330 /Oslash 8#331 /Ugrave 8#332 /Uacute 8#333 /Ucircumflex
+8#334 /Udieresis 8#335 /Yacute 8#336 /Thorn 8#337 /germandbls 8#340 /agrave
+8#341 /aacute 8#342 /acircumflex 8#343 /atilde 8#344 /adieresis 8#345 /aring
+8#346 /ae 8#347 /ccedilla 8#350 /egrave 8#351 /eacute
+8#352 /ecircumflex 8#353 /edieresis 8#354 /igrave 8#355 /iacute
+8#356 /icircumflex 8#357 /idieresis 8#360 /eth 8#361 /ntilde 8#362 /ograve
+8#363 /oacute 8#364 /ocircumflex 8#365 /otilde 8#366 /odieresis 8#367 /divide
+8#370 /oslash 8#371 /ugrave 8#372 /uacute 8#373 /ucircumflex
+8#374 /udieresis 8#375 /yacute 8#376 /thorn 8#377 /ydieresis] def
+/Times-Roman /Times-RomanISOLatin1 isovec ReEncode
+/Courier  /CourierISOLatin1 isovec ReEncode 
+/FontName where { pop } { /FontName (Courier) def } ifelse
+/FirstSize where { pop } { /FirstSize 10 def } ifelse
+%%EndProlog
+/CourierISOLatin1 findfont 12 scalefont setfont
+
+This amounts to reencode the font files so that it uses ISO8859-1.
+Oleo does that, but the default font is /CGTimes instead of /Times-Roman. 
+As the postscript interpreter does not find the font, it uses the standard encoding. Changing the default font to Time-Roman solves the problem. 
+
 Format selection for files
 --------------------------
 Choosing sc,sylk,dbf format in "Save As" or "Open" menu causes a crash. 
 This is partially solved. The char pattern[10] was too short to accomodate
 "*.[Cc][Ss][Vv]" (2+3*4=14 characters).
 
-Saving to csv still causes a crash.
+Saving to csv still  caused a crash.
 
-gdb gives 
+gdb gave
 Program received signal SIGSEGV, Segmentation fault.
 stricmp (s1=s1@entry=0x5555555cea04 "oleo", s2=s2@entry=0x0) at utils.c:573
 573	      chr2 = isupper (*scan2) ? tolower (*scan2) : *scan2;
@@ -78,5 +138,45 @@ with backtrace
 #2  0x0000555555590342 in write_file_generic (fp=0x55555592f140, rng=0x0, 
     format=<optimized out>) at io-utils.c:1383
 
-The cause was an unimplemented function to write CSV files. Using the function to write lists using ',' as separator solves this problem.
+The cause was an unimplemented function to write CSV files.
+Using the function to write lists with ',' as separator solved this problem.
 
+Formats:
+-------
+Using the curses interface, and printing, formats are taken into account.
+Formats are also saved correctly.
+But the Motif interface is not displaying formats. Why ?
+The function print_cell does the formatted printing by calling
+GET_FORMAT (cp);
+GET_PRECISION (cp);
+and using 
+pr_flt (cp->cell_flt, &dol, p);
+
+But cell_value_string is used, calling flt_to_str (cp->cell_flt);
+instead.
+
+switch (j)
+    {
+      case FMT_FXT:
+      case FMT_DOL:
+      case FMT_PCT:
+        return pr_flt (cp->cell_flt, &fxt, p);
+      default:
+        return flt_to_str (cp->cell_flt);
+    }
+
+This does nothing 
+cell_format_string(CELL *cp)
+{
+        static char no_default[] = "";
+
+        /* FIXME: Doesn't anything! */
+        if (cp == NULL)
+                return fmt_to_str(0, 0);
+        else
+                return no_default;
+
+        
+}
+It is used by cell in cells.c 
+insert_cell_attr (struct rng * rng, char * attr) in io-edit.c

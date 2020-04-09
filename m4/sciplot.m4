@@ -42,7 +42,7 @@ CFLAGS="$X_CFLAGS $CFLAGS"
 CPPFLAGS="$X_CFLAGS $CPPFLAGS"
 LDFLAGS="$X_LIBS $LDFLAGS"
 #
-AC_TRY_COMPILE([#include <SciPlot/SciPlot.h>],[int a;],
+AC_TRY_COMPILE([#include <SciPlot.h>],[int a;],
 [
 # SciPlot/SciPlot.h is in the standard search path.
 ice_cv_sciplot_includes=
@@ -56,6 +56,7 @@ ice_cv_sciplot_includes=
 # /usr/dt is used on Solaris (Motif).
 # /usr/openwin is used on Solaris (X and Athena).
 # Other directories are just guesses.
+# On Ubuntu 18.04 LTS SciPlot.h is in the /usr/include/ directory 
 ice_cv_sciplot_includes="none"
 for dir in "$x_includes" "${prefix}/include" /usr/include /usr/local/include \
            /usr/include/Motif2.0 /usr/include/Motif1.2 /usr/include/Motif1.1 \
@@ -66,7 +67,7 @@ for dir in "$x_includes" "${prefix}/include" /usr/include /usr/local/include \
 	   /home/SciPlot*/include /usr/SciPlot*/include /opt/SciPlot*/include \
            "${prefix}"/*/include /usr/*/include /usr/local/*/include \
            "${prefix}"/include/* /usr/include/* /usr/local/include/*; do
-if test -f "$dir/SciPlot/SciPlot.h"; then
+if test -f "$dir/SciPlot.h"; then
 ice_cv_sciplot_includes="$dir"
 break
 fi
@@ -91,13 +92,13 @@ ice_sciplot_save_LIBS="$LIBS"
 ice_sciplot_save_CFLAGS="$CFLAGS"
 ice_sciplot_save_CPPFLAGS="$CPPFLAGS"
 ice_sciplot_save_LDFLAGS="$LDFLAGS"
-#
-LIBS="$X_PRE_LIBS -lSciPlot -lXm -lXt -lX11 $X_EXTRA_LIBS $LIBS"
+# On Ubuntu 18.04 LTS the library is libsciplot.a 
+LIBS="$X_PRE_LIBS -lsciplot -lXm -lXt -lX11 $X_EXTRA_LIBS $LIBS"
 CFLAGS="$X_CFLAGS $CFLAGS"
 CPPFLAGS="$X_CFLAGS $CPPFLAGS"
 LDFLAGS="$X_LIBS $LDFLAGS"
 #
-AC_TRY_LINK([#include <SciPlot/SciPlot.h>],[SciPlotQuickUpdate();],
+AC_TRY_LINK([#include <SciPlot.h>],[SciPlotQuickUpdate();],
 [
 # libXm.a is in the standard search path.
 ice_cv_sciplot_libraries=

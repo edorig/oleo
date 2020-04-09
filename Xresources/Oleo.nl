@@ -1,12 +1,12 @@
-#
-# $Header: /cvs/oleo/Xresources/Oleo.nl,v 1.2 2000/02/22 23:44:18 danny Exp $
-#
-# This file configures the Dutch texts for the Motif interface of GNU Oleo.
-# It is a translation of Oleo.en, the English version.
-#
-# Dit is het bestand dat voor het Nederlands de teksten in de Motif-interface
-# van GNU Oleo bepaalt. Het is een vertaling van een Oleo.en, de Engelse versie.
-#
+!
+! $Header: /cvs/oleo/Xresources/Oleo.nl,v 1.2 2000/02/22 23:44:18 danny Exp $
+!
+! This file configures the Dutch texts for the Motif interface of GNU Oleo.
+! It is a translation of Oleo.en, the English version.
+!
+! Dit is het bestand dat voor het Nederlands de teksten in de Motif-interface
+! van GNU Oleo bepaalt. Het is een vertaling van een Oleo.en, de Engelse versie.
+!
 Oleo.title:			Oleo
 Oleo.geometry:			800x600
 *tearOffModel:			XmTEAR_OFF_ENABLED
@@ -18,10 +18,10 @@ Oleo.geometry:			800x600
 *splash.background:		#AAAAAA
 *splash.foreground:		red
 *messagesSW.height:		70
-#
-# Menu System
-# File
-#
+!
+! Menu System
+! File
+!
 *filecascade.labelString:	Bestand
 *filecascade.mnemonic:		B
 *open.labelString:		Openen
@@ -48,9 +48,9 @@ Oleo.geometry:			800x600
 *quit.mnemonic:			S
 *quit.accelerator:		Ctrl<Key>s
 *quit.acceleratorText:		^s
-#
-# Edit
-#
+!
+! Edit
+!
 *editcascade.labelString:	Editeren
 *editcascade.mnemonic:		E
 *undo.labelString:		Ongedaan maken
@@ -59,16 +59,16 @@ Oleo.geometry:			800x600
 *undo.acceleratorText:		^n
 *copy.labelString:		Copiëren
 *copy.mnemonic:			C
-#*copy.accelerator:		Ctrl<Key>osfInsert
-#*copy.acceleratorText:		Ctrl-Insert
+!*copy.accelerator:		Ctrl<Key>osfInsert
+!*copy.acceleratorText:		Ctrl-Insert
 *cut.labelString:		Knippen
 *cut.mnemonic:			K
-#*cut.accelerator:		Shift<Key>osfDelete
-#*cut.acceleratorText:		Shift-Delete
+!*cut.accelerator:		Shift<Key>osfDelete
+!*cut.acceleratorText:		Shift-Delete
 *paste.labelString:		Plakken
 *paste.mnemonic:		P
-#*paste.accelerator:		Ctrl<Key>osfInsert
-#*paste.acceleratorText:	Ctrl-Insert
+!*paste.accelerator:		Ctrl<Key>osfInsert
+!*paste.acceleratorText:	Ctrl-Insert
 *insert.labelString:		Invoegen
 *insert.accelerator:		Ctrl<Key>plus
 *insert.acceleratorText:	Ctrl-+
@@ -80,9 +80,9 @@ Oleo.geometry:			800x600
 *gotocell.labelString:		Ga naar cel
 *gotocell.accelerator:		<Key>F5
 *gotocell.acceleratorText:	F5
-#
-# Style
-#
+!
+! Style
+!
 *stylecascade.labelString:	Stijl
 *stylecascade.mnemonic:		S
 *format.labelString:		Formaten
@@ -93,9 +93,9 @@ Oleo.geometry:			800x600
 *width.labelString:		Breedte
 *height.labelString:		Hoogte
 *protection.labelString:	Bescherming
-#
-# Options
-#
+!
+! Options
+!
 *optionscascade.labelString:	Opties
 *optionscascade.mnemonic:	O
 *a0.labelString:		Stel cellen voor als A0
@@ -112,17 +112,17 @@ Oleo.geometry:			800x600
 *showvariable.labelString:	Toon waarde van variabele
 *listvariables.labelString:	Toon lijst van variabelen
 *showoptions.labelString:	Toon alle opties
-#
-# Graph
-#
+!
+! Graph
+!
 *graphcascade.labelString:	Grafiek
 *graphcascade.mnemonic:		G
 *define.labelString:		Bepaal grafiek
 *show.labelString:		Toon grafiek
 *graphmenu.print.labelString:	Druk grafiek af
-#
-# Help
-#
+!
+! Help
+!
 *helpcascade.labelString:	Hulp
 *helpcascade.mnemonic:		H
 *about.labelString:		Over Oleo
@@ -141,28 +141,28 @@ Oleo.geometry:			800x600
 *error.labelString:		Foutwaarden
 *helpmenu.format.labelString:	Formaten
 *helpmenu.option.labelString:	Opties
-#
-# BaeMatrix
-#
+!
+! BaeMatrix
+!
 *bae.allowColumnResize:		True
 *bae.columnLabelColor:		dark slate blue
 *bae.rowLabelColor:		dark slate blue
-#
-# Help Dialog
-#
+!
+! Help Dialog
+!
 *versionD*Help*labelString:	GPL
-#
-# Configuration Dialogs
-#
+!
+! Configuration Dialogs
+!
 *configureGraph_popup*title:			Configure the Graph
 *configureGraphFrame*cap1.labelString:		X Axis
 *configureGraphFrame*cap2.labelString:		Data 1
 *configureGraphFrame*cap3.labelString:		Data 2
 *configureGraphFrame*cap4.labelString:		Data 3
 *configureGraphFrame*cap5.labelString:		Data 4
-#
-# Motif
-#
+!
+! Motif
+!
 *ok.labelString:		OK
 *cancel.labelString:		Onderbreken
 *help.labelString:		Hulp

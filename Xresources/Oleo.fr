@@ -1,12 +1,12 @@
-#
-# $Header: /cvs/oleo/Xresources/Oleo.fr,v 1.2 2000/02/22 23:44:18 danny Exp $
-#
-# This file configures the Dutch texts for the Motif interface of GNU Oleo.
-# It is a translation of Oleo.en, the English version.
-#
-# Dit is het bestand dat voor het Nederlands de teksten in de Motif-interface
-# van GNU Oleo bepaalt. Het is een vertaling van een Oleo.en, de Engelse versie.
-#
+!
+! $Header: /cvs/oleo/Xresources/Oleo.fr,v 1.2 2000/02/22 23:44:18 danny Exp $
+!
+! This file configures the Dutch texts for the Motif interface of GNU Oleo.
+! It is a translation of Oleo.en, the English version.
+!
+! Dit is het bestand dat voor het Nederlands de teksten in de Motif-interface
+! van GNU Oleo bepaalt. Het is een vertaling van een Oleo.en, de Engelse versie.
+!
 *filecascade.labelString:	File
 *filecascade.mnemonic:		F
 Oleo.title:			Oleo
@@ -20,8 +20,8 @@ Oleo.geometry:			800x600
 *splash.background:		#AAAAAA
 *splash.foreground:		red
 *messagesSW.height:		70
-# Menu System
-# File
+! Menu System
+! File
 *filecascade.labelString:	Fichier
 *open.labelString:		Ouvrir
 *close.labelString:		Fermer
@@ -29,20 +29,25 @@ Oleo.geometry:			800x600
 *saveas.labelString:		Enregistrer sous
 *print.labelString:		Imprimer
 *quit.labelString:		Quitter
-# Edit
+! Edit
 *editcascade.labelString:	Edition
 *undo.labelString:		Annuler
 *copy.labelString:		Copier
 *cut.labelString:		Couper
 *paste.labelString:		Coller
+*copyvalues.labelString:	Copier Valeurs
+*copyregion.labelString:	Copier Region
 *insert.labelString:		Inserer
 *delete.labelString:		Supprimer
 *move.labelString:		Deplacer
-*recalculate.labelString:	Recalculaer
-*setregion.labelString:	Set Region
-*setmark.labelString:		Set Mark
+*sort.labelString:		Trier
+*recalculate.labelString:	Recalculer
+*setregion.labelString:		Delimiter Region
+*markcell.labelString:		Marquer Cellule
+*markregion.labelString:	Marquer Region
+*setmark.labelString:		Marquer
 *gotocell.labelString:		Aller en 
-# Style
+! Style
 *stylecascade.labelString:	Style
 *format.labelString:		Format
 *alignment.labelString:	Alignement
@@ -50,28 +55,48 @@ Oleo.geometry:			800x600
 *width.labelString:		Largeur
 *height.labelString:		Hauteur
 *protection.labelString:	Protection
-# Options
+! Options
 *optionscascade.labelString:	Options
 *a0.labelString:		Representer les colonnes avec A0
 *edges.labelString:		Bords
 *autorecalc.labelString:	Recalculer Automatiquement 
-*loadhooks.labelString:	Run load hooks
+*loadhooks.labelString:		Executer les hooks au chargement
 *statusline.labelString:	Ligne d etat en haut
 *backup.labelString:		Conserver ancien fichier 
-*backupcopy.labelString:	Conserver un copiant
+*backupcopy.labelString:	Conserver en copiant
 *formats.labelString:		Formats
 *printoptions.labelString:	Options d Impression
 *defaultfileformat.labelString:	Format de fichier par defaut
-*setvariable.labelString:		Definirt Variable
+*setvariable.labelString:		Definir Variable
 *showvariable.labelString:		Afficher Variable
 *listvariables.labelString:		Liste des Variables
 *showoptions.labelString:		Afficher
-# Graph
+*userpreferences.labelString:		Preferences Utilisateur
+*saveuserpreferences.labelString:	Sauvegarder les Preferences
+! Graph
 *graphcascade.labelString:	Graphe
-*define.labelString:		Definir Graphe
-*show.labelString:		Afficher Graphe
+*graphmenu.define.labelString:	Definir le Graphe
+*graphmenu.pushowpie.labelString:		Afficher Camembert
+*graphmenu.pushowbar.labelString:		Afficher Histogramme
+*graphmenu.pushowxy.labelString:		Afficher Courbe
+*graphmenu.puprintpie.labelString:	Imprimer Camembert
+*graphmenu.puprintbar.labelString:	Imprimer Histogramme
+*graphmenu.puprintxy.labelString:		Imprimer Courbe
+*graphmenu.show.labelString:		Afficher Graphe
 *graphmenu.print.labelString:	Imprimer Graphe
-# Help
+! Database
+*dbcascade.labelString:		Base de donnees
+*dbmenu*nodbms.labelString:	Acces aux bases de donnees indisponible
+*configuremysql.labelString:	Configurer Acces MySQL
+*mySQLDialog_popup.title:              Configuration MySQL
+*dbmenu*readmysql.labelString:         Lire MySQL
+*dbmenu*writemysql.labelString:        Ecrire MySQL
+*dbmenu*readxbase.labelString:         Lire Xbase
+*dbmenu*writexbase.labelString:        Ecrire Xbase
+*dbhostlabel.labelString:              Serveur DBMS
+*dbnamelabel.labelString:              Nom de la base de donnees
+dbuserlabel.labelString:	       Nom utilisateur 
+! Help
 *helpcascade.labelString:	Aide
 *about.labelString:		A propos d Oleo
 *version.labelString:		Version
@@ -89,23 +114,28 @@ Oleo.geometry:			800x600
 *error.labelString:		Error Values
 *helpmenu.format.labelString:	Formats
 *helpmenu.option.labelString:	Options
-# BaeMatrix
+! BaeMatrix
 *bae.allowColumnResize:	True
 *bae.columnLabelColor:		dark slate blue
 *bae.rowLabelColor:		dark slate blue
-# Help Dialog
+! Help Dialog
 *versionD*Help*labelString:	GPL
-# Configuration Dialogs
+! Configuration Dialogs
 *configureGraph_popup*.title:			Configurer le Graphe
-*configureGraphFrame*cap1.labelString:		Axe X
-*configureGraphFrame*cap2.labelString:		Donnees 1
-*configureGraphFrame*cap3.labelString:		Donnees 2
-*configureGraphFrame*cap4.labelString:		Donnees 3
-*configureGraphFrame*cap5.labelString:		Donnees 4
+*configureGraphFrame*cap1.labelString:		Abcisse
+*configureGraphFrame*cap2.labelString:		Ordonnees 1
+*configureGraphFrame*cap3.labelString:		Ordonnees 2
+*configureGraphFrame*cap4.labelString:		Ordonnees 3
+*configureGraphFrame*cap5.labelString:		Ordonnees 4
 *configureGraph*ok.labelString:		OK
 *configureGraph*cancel.labelString:		Annuler
-*configureGraph*help.labelString:		Aide 
-# Mnemonics
+*configureGraph*help.labelString:		Aide
+*configureGraph*r0.labelString:                 Donnees dans le domaine
+*configureGraph*t0.labelString:                Nom Ensemble de Donnees
+*configureGraph*s0.labelString:                Lignes Pointillees
+*configureGraph*xl.labelString:                Titre en abcisse
+*configureGraph*yl.labelString:                Titre en ordonnee
+! Mnemonics
 *filecascade.mnemonic:		F
 *open.mnemonic:		O
 *quit.mnemonic:		Q
@@ -128,7 +158,7 @@ Oleo.geometry:			800x600
 
 *helpcascade.mnemonic:		H
 
-# Accelerators
+! Accelerators
 *open.accelerator:		Ctrl<Key>o
 *close.accelerator:		Ctrl<Key>x
 *save.accelerator:		Ctrl<Key>s
@@ -138,12 +168,12 @@ Oleo.geometry:			800x600
 
 *undo.accelerator:		Ctrl<Key>u
 *copy.accelerator:		Ctrl<Key>osfInsert
-#*cut.accelerator:		Shift<Key>osfDelete
+!*cut.accelerator:		Shift<Key>osfDelete
 *paste.accelerator:		Ctrl<Key>osfInsert
 *insert.accelerator:		Ctrl<Key>plus
 *gotocell.accelerator:		<Key>F5
 *format.accelerator:		Ctrl<Key>F
-# Accelerator Texts
+! Accelerator Texts
 *open.acceleratorText:		Ctrl-O
 *save.acceleratorText:		Ctrl-S
 *saveas.acceleratorText:	Ctrl-A
@@ -159,3 +189,41 @@ Oleo.geometry:			800x600
 *gotocell.acceleratorText:	F5
 
 *format.acceleratorText:	Ctrl-F
+
+! Quit dialog
+
+*quitMB_popup.title:		Quitter Oleo ?
+*quitMB*OK.labelString:		Confirmer
+*quitMB*Cancel.labelString:	Annuler
+
+! XY Chart Dialog
+*datatab.labelString:		Donnees Generales Courbes
+! XY Chart Dialog
+*XYTab.labelString:                            Courbes
+*configureXYChartFrameTitle.labelString:       Configurer la courbe
+xAutoToggle.labelString:                      Abcisse Automatique
+*xMinLabel.labelString:                        Minimum en Abcisse:
+*xMaxLabel.labelString:                         Maximum en Abcisse:
+*yAutoToggle.labelString:                      Ordonnee Automatique
+*yMinLabel.labelString:                        Minimum en Ordonnee:
+*yMaxLabel.labelString:                        Maximum en Ordonnee:
+*lineToOffscreen.labelString:                  Tracer les lignes allant vers les points hors ecran
+*xLogToggle.labelString:		       Echelle Logarithmique 
+*yLogToggle.labelString:		       Echelle Logarithmique 
+*xtickdefault.labelString:             	       Par Defaut
+*xticknone.labelString:                	       Aucun
+*xtickprintf.labelString:              	       Printf
+*xtickstrftime.labelString:            	       Strftime
+*ytickdefault.labelString:             	       Par Defaut
+*yticknone.labelString:                	       Aucun
+*ytickprintf.labelString:              	       Printf
+*ytickstrftime.labelString:            	       Strftime
+! Bar Chart Dialog 
+*BarTab.labelString:                           Histogramme
+*configureBarChartFrameTitle.labelString:      Configurer Histogramme
+*stackToggle.labelString:		       Histogrammmes superposes                      
+! Pie Chart Dialog 1
+*PieTab.labelString:                           Diagramme Camembert
+*configurePieChartFrameTitle.labelString:      Configurer Camembert
+*pie3d.labelString:                            Camembert 3D
+

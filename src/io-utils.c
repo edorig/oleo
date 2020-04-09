@@ -1361,7 +1361,6 @@ write_file_generic_2(FILE *fp, struct rng *rng, char *format)
 	} else if (!stricmp("csv", format)) {
 	  list_set_separator(',');
 	  list_write_file(fp,rng); 
-	  fprintf(stderr,"CSV is not implemented yet.\n");
 	} else if (!stricmp("dbf", format)) {
 	  fprintf(stderr,"DBF format demands XBASE.\n");
 	} else {
@@ -1382,9 +1381,9 @@ write_file_generic(FILE *fp, struct rng *rng, char *format)
 
 		return;
 	}
-	/*#if 0*/ 
+	#if 0 
 	fprintf(stderr, PACKAGE " write_file_generic : format %s\n", format);
-	/* #endif */ 
+	#endif 
 	if (write_file_generic_2(fp, rng, format) != 0) {
 		if (write_file_generic_2(fp, rng, defaultformat) != 0)
 			oleo_write_file(fp, rng);

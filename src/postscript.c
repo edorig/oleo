@@ -274,7 +274,7 @@ void PostScriptFont(char *family, char *slant, int size, FILE *fp)
 void PostScriptNewLine(int ht, FILE *fp)
 {
 	x = border_width;
-	/*	y -= ht; */
+	/* EO: previously this was y -= ht; But on Ubuntu 18.04 LTS this was not leaving enough vertical space between two consecutive lines, and the letters were overlapping each other. This could cause problems elsewhere. On Slackware 14.2 this is not necessary. Depending on your operating system (Linux, *BSD, OpenIndiana) and distribution, you may need to restore the previous instruction. */
 	y-=(2*ht); 
 }
 

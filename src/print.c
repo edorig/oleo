@@ -99,7 +99,7 @@ float default_pshgt = 792;
 /*
  * Default font
  */
-static char	*default_font_family = "CGTimes",
+static char	*default_font_family = "Times-Roman",
 		*default_font_slant = NULL;
 static int	default_font_size = 10;
 

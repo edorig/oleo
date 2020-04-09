@@ -42,3 +42,8 @@ in the cell.
 @node Xbase, , MySQL, Database Access
 @section Xbase
 
+It should be possible to compile and link oleo with the Xbase C++
+library to access files in formats similar to dBASE I/II/III/IV (known
+as Xbase formats). This has not been tested. 
+A simpler solution is to install dbview-1.0.4 and use dbview -b -d','
+file.dbf > file.csv to export the Xbase files in CSV format.

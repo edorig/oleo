@@ -62,7 +62,7 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 	(busy) improve appearance of PostScript prints
 	(done) fix precision handling in prints
 	(done) Make Iso Latin 1 be user definable in PostScript.
-
+        (done) Text printing with TAB separated data (useable directly in GNU tbl) 
 * Get our stuff together for an upcoming 2.0 release of Oleo.
 
 * Add "date" and "time" formats, allow them to be input and allow
@@ -103,6 +103,13 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 	(todo) integrate it
   The GSL is a collection of routines for numerical analysis,
   which we happen to be lacking in Oleo.
+        EO: This does not look like a good idea. First, some
+	functions of the standard C library can be included in Oleo
+	[erf, gamma, hyperbolic direct and inverse functions (done),
+	Bessel functions (todo)]. Second, there are other
+	numerical libraries such as CERNLIB, SLATEC, CEPHES (the first
+	two in Fortran, the last one in C) that could provide more
+	reliable code.  
 
 * Import/Export Filters.
  - SYLK
@@ -116,9 +123,17 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 	(todo) interpret fill patterns
 	(todo) ...
 	(todo) make this list more complete
+ - LaTeX/LyX 
+       (todo) Add an export to LaTeX table format
+ - HTML
+       (todo) Add an export to HTML table format
+ - RTF
+       (todo) Add an export to RTF table format (as used by Ted). 
 
  - CSV would be nice (DB 17/3/1999: LIST format can do this,
 	now also recognizes CSV file name suffix)
+	(done) using LIST format
+	
  - DBII or DBIII is useful.
 	(db 19/3/1999: XBASE library can do this. Somewhat implemented.)
  - Fixed width.

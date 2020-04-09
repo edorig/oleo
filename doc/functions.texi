@@ -76,6 +76,8 @@ converted to a number.  Thus, @code{isnum("12")} is @code{#TRUE}, while
 @menu
 * General math functions::              log, sqrt, etc.
 * Trigonometric functions::             Trigonometric functions
+* Hyperbolic functions::                Hyperbolic functions
+* Extra math functions::                Erf, Gamma, Bessel 
 * Statistical functions::               Statistical functions
 @end menu
 
@@ -176,6 +178,7 @@ from 1 second to 10 seconds, type
 @end ifhtml
 
 @table @code
+
 @item pi()
   Constant; 15 decimals of 
 @ifinfo
@@ -184,9 +187,9 @@ pi,
 @tex
 $\pi$,
 @end tex
-3.141592653589793.
+
 @item sin(@var{ang}) 
-  The sine of angle @var{ang} (in radians).
+  The sine of angle @var{ang} (measured in radians).
 @findex sin
 
 @item cos(@var{ang})
@@ -194,12 +197,12 @@ $\pi$,
 @findex cos
 
 @item tan(@var{ang})
-  The  tangent of angle @var{ang} (in radians).
+  The tangent of angle @var{ang} (in radians).
 @findex tan
 
 @item asin(@var{val})
 @findex asin
-  The arc sine (in radians) of @var{val}.
+  The arc sine (in radians)  of @var{val}.
 
 @itemx acos(@var{val})
 @findex acos
@@ -235,8 +238,100 @@ and @var{y}; i.e., @w{@code{sqrt(@var{x}*@var{x} + @var{y}*@var{y})}}.
 (@pxref{General math functions})
 @end table
 
+ 
 
-@node   Statistical functions,  , Trigonometric functions, Math functions
+@node   Hyperbolic functions, Trigonometric functions, Statistical functions, General math functions, Math functions
+@subsection Hyperbolic Functions
+
+@ifhtml
+<A NAME="HelpHyperbolicFunctions">
+@end ifhtml
+
+@table @code
+
+@item sinh(@var{arg}) 
+  The hyperbolic sine of argument @var{arg}.
+@findex sinh
+
+@item cosh(@var{arg})
+  The  hyperbolic cosine of argument @var{arg}.
+@findex cosh
+
+@item tanh(@var{arg})
+  The  hyperbolic tangent of argument @var{arg}.
+@findex tanh
+
+@item asinh(@var{val})
+@findex asinh
+  The arg (or inverse function of) hyperbolic sine of @var{val}.
+
+@itemx acosh(@var{val})
+@findex acosh
+  The (positive) arg  hyperbolic cosine of @var{val}.
+
+@item atanh(@var{val})
+@findex atan
+  The arg  hyperbolic tangent of @var{val}.
+
+@end table
+
+@node   Extra math functions, Hyperbolic functions, Trigonometric functions, Statistical functions, General math functions, Math functions
+@subsection Extra math functions
+@ifhtml
+<A NAME="HelpExtramathFunctions">
+@end ifhtml
+See dlmf.nist.gov for definitions. 
+@table @code
+
+@item cbrt(@var{val})
+@findex cbrt
+The cube root of @var{val}.
+
+@item erf(@var{val})
+@findex erf
+The error function (integral of the Gaussian)  of @var{val}.
+@tex
+$${\rm erf}(x)={2 \over \sqrt{\pi}}\int_0^x e^{-t^2} dt$$  
+@end tex 
+@item gamma(@var{val})
+@findex gamma
+The gamma function (generalized factorial)  of @var{val}.
+@tex
+$$\Gamma(x)=\int_0^{+\infty} t^{x-1} e^{-t} dt $$
+@end tex 
+@item besj0(@var{val})
+@findex besj0 
+The Bessel function of the first kind J0  of @var{val}.
+
+@item besy0(@var{val})
+@findex besy0 
+The Bessel function of the second kind Y0  of @var{val}. Undefined when @var{val} is
+negative. 
+
+@item besj1(@var{val})
+@findex besj1 
+The Bessel function of the first kind J1  of @var{val}. Undefined when @var{val} is
+negative. 
+
+@item besy1(@var{val})
+@findex besy1 
+The Bessel function of the second kind Y1  of @var{val}.
+
+
+@item besjn(@var{n},@var{val})
+@findex besjn
+The Bessel function J@var{n} (with integer parameter @var{n}) of
+@var{val}.
+
+@item besyn(@var{n},@var{val})
+@findex besyn
+The Bessel function of the second kind Y@var{n} (with integer parameter @var{n}) of
+@var{val}. Undefined when @var{val} is negative. 
+
+
+@end table
+
+@node   Statistical functions, Extra math functions, Hyperbolic functions, Statistical functions,  Hyperbolic functions  , Trigonometric functions, Math functions
 @subsection Statistical Functions
 @cindex Statistical functions
 @cindex Functions, statistical

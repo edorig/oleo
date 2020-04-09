@@ -57,7 +57,7 @@ oleo_SOURCES = parse.y byte-compile.c eval.c ref.c \
  forminfo.c posixtm.y date.c xrdb.c \
  $(GUI) $(XBSRC) $(MYSQL) \
  print.c postscript.c pcl.c epson.c prtext.c afm.c \
- mdi.c gsl.c \
+ mdi.c gsl.c transc_funs.c \
  ${SCIPLOT_SRC}
 
 if UseMotif

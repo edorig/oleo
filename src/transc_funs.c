@@ -87,6 +87,53 @@ void do_gamma(p)
   // p->Type= TYP_FLT;
 }
 
+void do_j0(p)
+     struct value *p;
+{
+  double x=p[0].Float;
+  p->Float=j0(x); 
+}
+
+void do_j1(p)
+     struct value *p;
+{
+  double x=p[0].Float;
+  p->Float=j1(x); 
+}
+
+void do_y0(p)
+     struct value *p;
+{
+  double x=p[0].Float;
+  p->Float=y0(x); 
+}
+
+void do_y1(p)
+     struct value *p;
+{
+  double x=p[0].Float;
+  p->Float=y1(x); 
+}
+
+void do_jn(p)
+     struct value *p;
+{
+  double x=p[1].Float;
+  int n=p[0].Int;
+  /*  fprintf(stderr,"j_n(%d,%f) called.\n",n,x); */ 
+  p->Float=jn(n,x);
+  p->type=TYP_FLT; 
+}
+
+void do_yn(p)
+     struct value *p;
+{
+  double x=p[1].Float;
+  int n=p[0].Int;
+  /*  fprintf(stderr,"y_n(%d,%f) called.\n",n,x);  */ 
+  p->Float=yn(n,x);
+  p->type=TYP_FLT; 
+}
 
 struct function transc_funs[]=
   {
@@ -99,6 +146,12 @@ struct function transc_funs[]=
     {C_FN1,X_A1,"F",do_atanh,"atanh"},
     {C_FN1,X_A1,"F",do_erf,"erf"},
     {C_FN1,X_A1,"F",do_gamma,"gamma"},
+    {C_FN1,X_A1,"F",do_j0,"besj0"},
+    {C_FN1,X_A1,"F",do_j1,"besj1"},
+    {C_FN1,X_A1,"F",do_y0,"besy0"},
+    {C_FN1,X_A1,"F",do_y1,"besy1"},
+    {C_FN2,X_A2,"IF",do_jn,"besjn"},
+    {C_FN2,X_A2,"IF",do_yn,"besyn"},
     {0, 0, "", 0, 0},
           };
 
