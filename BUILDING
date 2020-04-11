@@ -1,0 +1,46 @@
+For Slackware 14.2 
+You need Xbae,plotutils,XmHtml from slackbuilds.org 
+and the associated source packages. 
+Optionnally, you need Xlt or Sciplot (for nicer graphics). 
+Build all the packages and install them with pkgtool before building Oleo.
+
+For Ubuntu 18.04 LTS
+Install libmotif-dev, libplot-dev, libxbae-dev, libxmhmtl-dev
+Optionally sciplot-dev
+
+With all Linux distributions, you should run the configure script with 
+ 
+./configure  --without-SciPlot --disable-nls (if no Sciplot)
+./configure --disable-nls --with-SciPlot-libraries=/usr/lib --with-SciPlot-includes=/usr/include
+make 
+
+In the second case, be ready to edit the Makefile in src and change the capitalization -lSciPlot to -lsciplot everywhere if the make fails. 
+
+In both cases, be sure to disable NLS with option --disable-nls.
+Internationalization/Localization
+in Oleo is full of bugs and you won't be able to enter decimals
+or define plots if your locale is not using the '.' as decimal separator. 
+
+If you speak Dutch or French, even with disabled NLS you can still
+have the messages in your language by loading the resource file Oleo.nl
+or Oleo.fr . 
+
+To avoid all problems caused by non-C locales, run Oleo with LANG=C.
+
+A shell script can be used to run Oleo with the correct parameters.
+Example: 
+
+#!/bin/sh
+
+export LANG=C
+xrdb -merge Oleo.fr
+/usr/local/bin/oleo 
+
+During the build, errors when building the documentation can occur
+with the texi2html perl script. Simply do cd doc; cp texi2html.good texi2html.
+the ./configure script is generating the texi2html script from texi2html.in
+but it contains obsolete instructions. The script texi2html.good is
+a corrected version of the script. 
+
+
+
