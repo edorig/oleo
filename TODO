@@ -35,6 +35,7 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 * Motif
 	(done) Handle interaction between formula editor and Xbae better.
 	(todo) User preferences (color, font, ..)
+	(todo) Add Insert Column/Delete Column function. Maybe ask how many. 
 	(done) Where does the beep come from ? (enter 1.123 in a cell)
 		Column MaxLengths weren't set (correctly), therefore an XbaeMatrix
 		column would get the width assigned to it and apply that to the

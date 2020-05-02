@@ -86,7 +86,7 @@ fi
 dnl
 dnl How good is the C compiler ?
 dnl
-AM_C_PROTOTYPES
+dnl AM_C_PROTOTYPES
 
 dnl
 dnl Checks for libraries.

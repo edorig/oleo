@@ -3510,26 +3510,50 @@ void UndoCB(Widget w, XtPointer client, XtPointer call)
 	none(w, client, call);
 }
 
-void EditInsertCB(Widget w, XtPointer client, XtPointer call)
+void EditInsertRowCB(Widget w, XtPointer client, XtPointer call)
 {
 	MotifSelectGlobal(w);
 
 	/* FIX ME */
-		/* Need to figure out whether to insert row or column */
 		/* Need to figure out how many rows/columns to treat */
-	insert_row(1);
+	        /* A dialog with a default of 1 in a XmTextField could be used */ 
+	/* This is only inserting one row at the current cursor position */ 
+	  insert_row(1);
+		/* Also need to clear the current cell */
+	MotifUpdateDisplay();
+}
+void EditInsertColCB(Widget w, XtPointer client, XtPointer call)
+{
+	MotifSelectGlobal(w);
+
+	/* FIX ME */
+		/* Need to figure out how many rows/columns to treat */
+	        /* A dialog with a default of 1 in a XmTextField could be used */ 
+	/* This is only inserting one column at the current cursor position */ 
+	  insert_col(1);
 		/* Also need to clear the current cell */
 	MotifUpdateDisplay();
 }
 
-void EditDeleteCB(Widget w, XtPointer client, XtPointer call)
+void EditDeleteRowCB(Widget w, XtPointer client, XtPointer call)
 {
 	MotifSelectGlobal(w);
 
 	/* FIX ME */
-		/* Need to figure out whether to delete row or column */
 		/* Need to figure out how many rows/columns to treat */
-	delete_row(1);
+	/* This deletes 1 row at current cursor position */ 
+	 delete_row(1);
+		/* Also need to clear the current cell */
+	MotifUpdateDisplay();
+}
+void EditDeleteColCB(Widget w, XtPointer client, XtPointer call)
+{
+	MotifSelectGlobal(w);
+
+	/* FIX ME */
+		/* Need to figure out how many rows/columns to treat */
+	/* This deletes 1 column at current cursor position */ 
+	 delete_col(1);
 		/* Also need to clear the current cell */
 	MotifUpdateDisplay();
 }
@@ -5006,16 +5030,22 @@ GscBuildMainWindow(Widget parent)
 	XtVaCreateManagedWidget("sep3", xmSeparatorGadgetClass, editmenu,
 		NULL);
 
-	w = XtVaCreateManagedWidget("insert", xmPushButtonGadgetClass,
+	w = XtVaCreateManagedWidget("insertr", xmPushButtonGadgetClass,
 		editmenu,
 		NULL);
-	XtAddCallback(w, XmNactivateCallback, EditInsertCB, NULL);
-
-	w = XtVaCreateManagedWidget("delete", xmPushButtonGadgetClass,
+	XtAddCallback(w, XmNactivateCallback, EditInsertRowCB, NULL);
+	w = XtVaCreateManagedWidget("insertc", xmPushButtonGadgetClass,
 		editmenu,
 		NULL);
-	XtAddCallback(w, XmNactivateCallback, EditDeleteCB, NULL);
-
+	XtAddCallback(w, XmNactivateCallback, EditInsertColCB, NULL);
+	w = XtVaCreateManagedWidget("deleter", xmPushButtonGadgetClass,
+		editmenu,
+		NULL);
+	XtAddCallback(w, XmNactivateCallback, EditDeleteRowCB, NULL);
+	w = XtVaCreateManagedWidget("deletec", xmPushButtonGadgetClass,
+		editmenu,
+		NULL);
+	XtAddCallback(w, XmNactivateCallback, EditDeleteColCB, NULL);
 	XtVaCreateManagedWidget("sep4", xmSeparatorGadgetClass, editmenu,
 		NULL);
 
