@@ -37,8 +37,10 @@ Oleo.geometry:			800x600
 *paste.labelString:		Coller
 *copyvalues.labelString:	Copier Valeurs
 *copyregion.labelString:	Copier Region
-*insert.labelString:		Inserer
-*delete.labelString:		Supprimer
+*insertr.labelString:		Inserer Ligne
+*deleter.labelString:		Supprimer Ligne
+*insertc.labelString:		Inserer Ccolonne
+*deletec.labelString:		Supprimer Colonne
 *move.labelString:		Deplacer
 *sort.labelString:		Trier
 *recalculate.labelString:	Recalculer

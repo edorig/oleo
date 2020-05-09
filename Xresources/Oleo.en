@@ -30,8 +30,10 @@ Oleo.geometry:			800x600
 *copy.labelString:		Copy
 *cut.labelString:		Cut
 *paste.labelString:		Paste
-*insert.labelString:		Insert
-*delete.labelString:		Delete
+*insertr.labelString:		Insert Row
+*deleter.labelString:		Delete Row
+*insertc.labelString:		Insert Column 
+*deletec.labelString:		Delete Column
 *move.labelString:		Move
 *recalculate.labelString:	Recalculate
 *setregion.labelString:	Set Region

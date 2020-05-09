@@ -1,3 +1,4 @@
+
 /*
  * $Id: plot.c,v 1.28 2001/02/13 23:38:06 danny Exp $
  *
@@ -327,9 +328,9 @@ PuBarChart(char *plotter, FILE *outfile)
 	mg = sp_create_plot(handle, SP_PLOT_BAR);
 
 	sp_set_title(mg, graph_get_title());
-	sp_set_axis_title(mg, X_AXIS, graph_get_axis_title('x'));
+      	sp_set_axis_title(mg, X_AXIS, graph_get_axis_title('x'));
 	sp_set_axis_title(mg, Y_AXIS, graph_get_axis_title('y'));
-
+	
 	sp_begin_plot(mg, 1.0, 0.0, 0.0);
 
 	sp_first_dataset(mg);
@@ -339,8 +340,8 @@ PuBarChart(char *plotter, FILE *outfile)
 		if (rngx.lr == 0 && rngx.lc == 0 && rngx.hr == 0 && rngx.hc == 0)
 			continue;
 
-		sp_legend_label(mg, r, graph_get_data_title(r));
-
+	       sp_legend_label(mg, r, graph_get_data_title(r));
+	        
 		make_cells_in_range(&rngx);
 		i = 0;
 		while ((cp = next_cell_in_range())) {

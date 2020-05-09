@@ -180,3 +180,17 @@ cell_format_string(CELL *cp)
 }
 It is used by cell in cells.c 
 insert_cell_attr (struct rng * rng, char * attr) in io-edit.c
+
+Bar charts
+==========
+
+There are no legends for x and y axis in bar charts.
+The data along x axis is not indicated, i. e. if we want to plot
+temperatures versus month, the month labels along y will be missing.
+
+Strangely, the file plotter.c contains code to do that, but it is between
+#if 0 / endif
+
+sp_plot_point(Multigrapher *mg, const Point *point)
+calls
+sp_bar_plot_point(mg, point); which calls sp_pie_plot_point(mg, point);

@@ -54,7 +54,7 @@ void sp_legend_draw(Multigrapher *mg)
         case SP_PLOT_XY:
         case SP_PLOT_PIE:
                 break;
-        case SP_PLOT_BAR:
+	case SP_PLOT_BAR: 
         default:
                 return;	/* No legend */
         }

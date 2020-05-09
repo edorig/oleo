@@ -1771,7 +1771,7 @@ draw_frame_of_graph (Multigrapher *multigrapher, int draw_canvas)
   /* 7.  DRAW THE ABSCISSA LABEL */
 
       if ((multigrapher->grid_spec != NO_AXES)
-      && multigrapher->x_axis.label != NULL && multigrapher->x_axis.label != '\0')
+	  && multigrapher->x_axis.label != NULL && *(multigrapher->x_axis.label) != '\0')
     {
       double x_axis_font_size;
       double xloc;
@@ -3050,7 +3050,7 @@ sp_bar_end_graph(Multigrapher *mg)
 {
 	int		i, num, r, nsets, *dsvalid, n;
 	double		x, y, y1, y2, ymin, ymax, *ys;
-
+	CELL            *cp; 
 	int		stacked = 1;				/* FIX ME only stacked for now */
 
 	/* How many items ? */
@@ -3153,10 +3153,10 @@ sp_bar_end_graph(Multigrapher *mg)
 		}
 	}
 
-#if 0
-	/* General Title */
+#if 1
+	/* General Title at the top and in the middle*/
 	if (mg->title) {
-		pl_fmove_r(mg->plotter, 5.0, -0.75);
+		pl_fmove_r(mg->plotter, .5*PLOT_SIZE, 1.05*PLOT_SIZE);
 		pl_alabel_r(mg->plotter, 1, 1, mg->title);
 	}
 #endif
@@ -3178,14 +3178,14 @@ sp_bar_end_graph(Multigrapher *mg)
 	}
 #endif
 
-#if 0
+#if 1
 	/* Data titles */
 	if (mg->x_axis.label) {
-		pl_fmove_r(mg->plotter, 10.0, -0.75);
+		pl_fmove_r(mg->plotter, .5*PLOT_SIZE, -0.1*PLOT_SIZE);
 		pl_alabel_r(mg->plotter, 1, 1, mg->x_axis.label);
 	}
 	if (mg->y_axis.label) {
-		pl_fmove_r(mg->plotter, 0.0, 10.5);
+		pl_fmove_r(mg->plotter, 0.0, PLOT_SIZE);
 		pl_alabel_r(mg->plotter, 1, 1, mg->y_axis.label);
 	}
 #endif
