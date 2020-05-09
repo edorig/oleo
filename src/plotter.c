@@ -3050,7 +3050,8 @@ sp_bar_end_graph(Multigrapher *mg)
 {
 	int		i, num, r, nsets, *dsvalid, n;
 	double		x, y, y1, y2, ymin, ymax, *ys;
-	CELL            *cp; 
+	CELL            *cp;
+	struct rng      rngx;
 	int		stacked = 1;				/* FIX ME only stacked for now */
 
 	/* How many items ? */
@@ -3157,19 +3158,23 @@ sp_bar_end_graph(Multigrapher *mg)
 	/* General Title at the top and in the middle*/
 	if (mg->title) {
 		pl_fmove_r(mg->plotter, .5*PLOT_SIZE, 1.05*PLOT_SIZE);
-		pl_alabel_r(mg->plotter, 1, 1, mg->title);
+		pl_alabel_r(mg->plotter, 'c', 'b', mg->title);
 	}
 #endif
 
 	/* X Axis Labels */
-#if 0
+#if 1
+	rngx = graph_get_data(0);
+	make_cells_in_range(&rngx);
 	i = 1;
+
 	while ((cp = next_cell_in_range())) {
-		x = TO_X(i);
+		x = TO_X(i-0.7);
 		if (GET_TYP(cp) == TYP_STR)
 			if (cp->cell_str) {
-				pl_fmove_r(mg->plotter, x, -0.3);
-				pl_alabel_r(mg->plotter, 1, 1, cp->cell_str);
+			  /* The shift from x is not always good, the legend is not always centered on the middle of the bar */ 
+				pl_fmove_r(mg->plotter, x, -0.05*PLOT_SIZE);
+				pl_alabel_r(mg->plotter, 'c', 'c', cp->cell_str);
 			}
 		else
 			/* ??? */ ;
@@ -3182,11 +3187,12 @@ sp_bar_end_graph(Multigrapher *mg)
 	/* Data titles */
 	if (mg->x_axis.label) {
 		pl_fmove_r(mg->plotter, .5*PLOT_SIZE, -0.1*PLOT_SIZE);
-		pl_alabel_r(mg->plotter, 1, 1, mg->x_axis.label);
+		pl_alabel_r(mg->plotter, 'c', 'b', mg->x_axis.label);
 	}
+	/* It would be nicer to use textangle to rotate the label by 90 degs */ 
 	if (mg->y_axis.label) {
 		pl_fmove_r(mg->plotter, 0.0, PLOT_SIZE);
-		pl_alabel_r(mg->plotter, 1, 1, mg->y_axis.label);
+		pl_alabel_r(mg->plotter, 'l', 'b', mg->y_axis.label);
 	}
 #endif
 
