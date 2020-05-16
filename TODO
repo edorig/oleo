@@ -15,6 +15,7 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 
 * Graphs
 	(TODO) documentation !!
+	(todo) Numerical values on the y-axis in bar charts (could be borrowed from XY chart) 
 	(done) connect the plot.c functionality (GNU Plotutils) to graph.c
 	(todo) make sure all the variables can get saved
 	(todo) make sure all flags can be controlled through GUI
@@ -29,6 +30,7 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 * Databases
 	(done) Simplistic interface to Xbase
 	(done) Simplistic interface to MySQL
+	(todo) Simplistic interface to sqlite3 
 	(todo) Design higher level interface to DBMS API's
 	(todo) Hook up Xbase and MySQL to higher level interface.
 

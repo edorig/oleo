@@ -191,6 +191,8 @@ temperatures versus month, the month labels along y will be missing.
 Strangely, the file plotter.c contains code to do that, but it is between
 #if 0 / endif
 
-sp_plot_point(Multigrapher *mg, const Point *point)
-calls
-sp_bar_plot_point(mg, point); which calls sp_pie_plot_point(mg, point);
+This code has been reactivated, and the x-axis data is shown. The y axis data
+is still to be shown.
+
+Only stacked bar charts are possible.
+

@@ -3050,6 +3050,8 @@ sp_bar_end_graph(Multigrapher *mg)
 {
 	int		i, num, r, nsets, *dsvalid, n;
 	double		x, y, y1, y2, ymin, ymax, *ys;
+	double          ylmax; 
+	char            ymord[10]; 
 	CELL            *cp;
 	struct rng      rngx;
 	int		stacked = 1;				/* FIX ME only stacked for now */
@@ -3081,6 +3083,7 @@ sp_bar_end_graph(Multigrapher *mg)
 	for (i = 0; i < mg->npoints; i++) {
 		r = mg->data[i].dataset;
 		n = dsvalid[r];
+		/* Negative values will not be shown */ 
 		if (mg->data[i].y <= 0.0)
 			Y_VALUE(r,n) = 0.0;
 		else
@@ -3172,7 +3175,7 @@ sp_bar_end_graph(Multigrapher *mg)
 		x = TO_X(i-0.7);
 		if (GET_TYP(cp) == TYP_STR)
 			if (cp->cell_str) {
-			  /* The shift from x is not always good, the legend is not always centered on the middle of the bar */ 
+			  /* The legend is centered on the middle of the bar */ 
 				pl_fmove_r(mg->plotter, x, -0.05*PLOT_SIZE);
 				pl_alabel_r(mg->plotter, 'c', 'c', cp->cell_str);
 			}
@@ -3183,6 +3186,14 @@ sp_bar_end_graph(Multigrapher *mg)
 	}
 #endif
 
+	/* We also have to do the Y-axis label */
+	pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,0.);
+	pl_alabel_r(mg->plotter,'r','c',"0\0"); 
+	ylmax=pow(10.,floor(log10(ymax)))*floor(ymax/pow(10.,floor(log10(ymax))));
+	sprintf(ymord,"%.3g",ylmax); 
+	pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,ylmax/ymax*PLOT_SIZE);
+	pl_alabel_r(mg->plotter,'r','c',ymord); 
+	
 #if 1
 	/* Data titles */
 	if (mg->x_axis.label) {
