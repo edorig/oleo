@@ -144,7 +144,7 @@ MYSQL = mysql.c oleosql.h mysql.h
 @HaveXbase_TRUE@oleo_LINK = $(CXXLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
 @HaveXbase_FALSE@oleo_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
 
-oleo_SOURCES = parse.y byte-compile.c eval.c ref.c  decompile.c sort.c regions.c utils.c lists.c  io-term.c io-utils.c io-x11.c window.c io-edit.c userpref.h  line.c key.c format.c funcs.c  hash.c ir.c io-curses.c font.c display.c init.c  sylk.c oleofile.c sc.c list.c busi.c string.c cells.c  cmd.c basic.c args.c  stub.c input.c info.c help.c  graph.c plot.c  forminfo.c posixtm.y date.c xrdb.c  $(GUI) $(XBSRC) $(MYSQL)  print.c postscript.c pcl.c epson.c prtext.c afm.c  mdi.c gsl.c  ${SCIPLOT_SRC}
+oleo_SOURCES = parse.y byte-compile.c eval.c ref.c  decompile.c sort.c regions.c utils.c lists.c  io-term.c io-utils.c io-x11.c window.c io-edit.c userpref.h  line.c key.c format.c funcs.c  hash.c ir.c io-curses.c font.c display.c init.c  sylk.c oleofile.c sc.c list.c busi.c string.c cells.c  cmd.c basic.c args.c  stub.c input.c info.c help.c  graph.c plot.c  forminfo.c posixtm.y date.c xrdb.c  $(GUI) $(XBSRC) $(MYSQL)  print.c postscript.c pcl.c epson.c prtext.c afm.c  mdi.c gsl.c  transc_funs.c ${SCIPLOT_SRC}
 
 
 # MYLD = @GTK_LIBS@
@@ -201,7 +201,7 @@ ANSI2KNR = ../lib/ansi2knr
 @UseMotif_TRUE@@HaveXbase_TRUE@xbase$U.o mysql$U.o print$U.o \
 @UseMotif_TRUE@@HaveXbase_TRUE@postscript$U.o pcl$U.o epson$U.o \
 @UseMotif_TRUE@@HaveXbase_TRUE@prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-@UseMotif_TRUE@@HaveXbase_TRUE@plotter$U.o legend$U.o
+@UseMotif_TRUE@@HaveXbase_TRUE@plotter$U.o legend$U.o transc_funs$U.o
 @UseMotif_TRUE@@HaveXbase_FALSE@oleo_OBJECTS =  parse$U.o \
 @UseMotif_TRUE@@HaveXbase_FALSE@byte-compile$U.o eval$U.o ref$U.o \
 @UseMotif_TRUE@@HaveXbase_FALSE@decompile$U.o sort$U.o regions$U.o \
@@ -219,7 +219,7 @@ ANSI2KNR = ../lib/ansi2knr
 @UseMotif_TRUE@@HaveXbase_FALSE@fallback$U.o mysql$U.o print$U.o \
 @UseMotif_TRUE@@HaveXbase_FALSE@postscript$U.o pcl$U.o epson$U.o \
 @UseMotif_TRUE@@HaveXbase_FALSE@prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-@UseMotif_TRUE@@HaveXbase_FALSE@plotter$U.o legend$U.o
+@UseMotif_TRUE@@HaveXbase_FALSE@plotter$U.o legend$U.o transc_funs$U.o
 @UseMotif_FALSE@@HaveXbase_TRUE@oleo_OBJECTS =  parse$U.o \
 @UseMotif_FALSE@@HaveXbase_TRUE@byte-compile$U.o eval$U.o ref$U.o \
 @UseMotif_FALSE@@HaveXbase_TRUE@decompile$U.o sort$U.o regions$U.o \
@@ -236,7 +236,7 @@ ANSI2KNR = ../lib/ansi2knr
 @UseMotif_FALSE@@HaveXbase_TRUE@xrdb$U.o xbase$U.o mysql$U.o print$U.o \
 @UseMotif_FALSE@@HaveXbase_TRUE@postscript$U.o pcl$U.o epson$U.o \
 @UseMotif_FALSE@@HaveXbase_TRUE@prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-@UseMotif_FALSE@@HaveXbase_TRUE@plotter$U.o legend$U.o
+@UseMotif_FALSE@@HaveXbase_TRUE@plotter$U.o legend$U.o transc_funs$U.o
 @UseMotif_FALSE@@HaveXbase_FALSE@oleo_OBJECTS =  parse$U.o \
 @UseMotif_FALSE@@HaveXbase_FALSE@byte-compile$U.o eval$U.o ref$U.o \
 @UseMotif_FALSE@@HaveXbase_FALSE@decompile$U.o sort$U.o regions$U.o \
@@ -253,7 +253,7 @@ ANSI2KNR = ../lib/ansi2knr
 @UseMotif_FALSE@@HaveXbase_FALSE@date$U.o xrdb$U.o mysql$U.o print$U.o \
 @UseMotif_FALSE@@HaveXbase_FALSE@postscript$U.o pcl$U.o epson$U.o \
 @UseMotif_FALSE@@HaveXbase_FALSE@prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-@UseMotif_FALSE@@HaveXbase_FALSE@plotter$U.o legend$U.o
+@UseMotif_FALSE@@HaveXbase_FALSE@plotter$U.o legend$U.o transc_funs$U.o
 @UseMotif_TRUE@oleo_DEPENDENCIES =  ../lib/liboleo.a ../intl/libintl.a
 @UseMotif_FALSE@oleo_DEPENDENCIES =  ../lib/liboleo.a ../intl/libintl.a
 oleo_LDFLAGS = 

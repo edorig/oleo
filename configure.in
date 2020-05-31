@@ -267,8 +267,8 @@ AC_CHECK_LIB(gsl, gsl_error,
 dnl
 dnl MySQL client library ?
 dnl
-AC_CHECK_LIB(mysqlclient, mysql_connect)
-AM_CONDITIONAL(HaveMySQL, test x$ac_cv_lib_mysqlclient_mysql_connect = xyes)
+AC_CHECK_LIB(mysqlclient, mysql_real_connect)
+AM_CONDITIONAL(HaveMySQL, test x$ac_cv_lib_mysqlclient_mysql_real_connect = xyes)
 
 dnl
 dnl Checks for typedefs, structures, and compiler characteristics.
@@ -287,9 +287,9 @@ AC_FUNC_ALLOCA
 AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
 AC_FUNC_VPRINTF
-AC_CHECK_FUNCS(ftime gethostname gettimeofday mktime select strdup strstr)
+AC_CHECK_FUNCS(ftime gethostname gettimeofday select strdup strstr)
 AC_CHECK_FUNCS(putenv strcasecmp strerror getcwd rename)
-AM_FUNC_MKTIME
+dnl AM_FUNC_MKTIME
 AM_FUNC_OBSTACK
 
 dnl

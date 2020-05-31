@@ -5271,9 +5271,9 @@ else
 fi
 
 
-echo $ac_n "checking for mysql_connect in -lmysqlclient""... $ac_c" 1>&6
-echo "configure:5276: checking for mysql_connect in -lmysqlclient" >&5
-ac_lib_var=`echo mysqlclient'_'mysql_connect | sed 'y%./+-%__p_%'`
+echo $ac_n "checking for mysql_real_connect in -lmysqlclient""... $ac_c" 1>&6
+echo "configure:5276: checking for mysql_real_connect in -lmysqlclient" >&5
+ac_lib_var=`echo mysqlclient'_'mysql_real_connect | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -5285,10 +5285,10 @@ cat > conftest.$ac_ext <<EOF
 /* Override any gcc2 internal prototype to avoid an error.  */
 /* We use char because int might match the return type of a gcc2
     builtin and then its argument prototype would still apply.  */
-char mysql_connect();
+char mysql_real_connect();
 
 int main() {
-mysql_connect()
+mysql_real_connect()
 ; return 0; }
 EOF
 if { (eval echo configure:5295: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then

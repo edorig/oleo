@@ -87,6 +87,21 @@ void do_gamma(p)
   // p->Type= TYP_FLT;
 }
 
+void do_beta(p)
+     struct value *p;
+{double arg0=p[0].Float;
+  double arg1=p[1].Float;
+  p->Float=exp(lgamma(arg0)+lgamma(arg1)-lgamma(arg0+arg1));
+	       p->type=TYP_FLT;
+}
+
+void do_binomial(p)
+     struct value *p;
+{double arg0=p[0].Float;
+  double arg1=p[1].Float;
+  p->Float=exp(lgamma(arg0+1.0)-lgamma(arg1+1.0)-lgamma(arg0-arg1+1.0));
+  p->type=TYP_FLT; 
+    }
 void do_j0(p)
      struct value *p;
 {
@@ -146,6 +161,8 @@ struct function transc_funs[]=
     {C_FN1,X_A1,"F",do_atanh,"atanh"},
     {C_FN1,X_A1,"F",do_erf,"erf"},
     {C_FN1,X_A1,"F",do_gamma,"gamma"},
+    {C_FN2,X_A2,"FF",do_beta,"beta"},
+    {C_FN2,X_A2,"FF",do_binomial,"binomial"}, 
     {C_FN1,X_A1,"F",do_j0,"besj0"},
     {C_FN1,X_A1,"F",do_j1,"besj1"},
     {C_FN1,X_A1,"F",do_y0,"besy0"},

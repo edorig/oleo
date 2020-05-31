@@ -63,8 +63,8 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 BUILD_PREFIX = /usr/local
-CATALOGS =  en.gmo nl.gmo fr.gmo
-CATOBJEXT = .gmo
+CATALOGS = 
+CATOBJEXT = 
 CC = gcc
 CPP = gcc -E
 CXX = c++
@@ -73,31 +73,31 @@ DATADIRNAME = share
 EXEEXT = 
 GENCAT = 
 GMOFILES =  en.gmo nl.gmo fr.gmo
-GMSGFMT = /usr/bin/msgfmt
+GMSGFMT = 
 GT_NO = 
 GT_YES = #YES#
 HAVE_PERL = /usr/bin/perl
 HAVE_TEXI2HTML = 
 INCLUDE_LOCALE_H = #include <locale.h>
-INSTOBJEXT = .mo
+INSTOBJEXT = 
 INTLDEPS = 
 INTLLIBS = 
 INTLOBJS = 
 LIBOBJS =  mktime.o
 LN_S = ln -s
 MAINT = #
-MAKEINFO = /home/edmond/software/oleo-1.99.16/missing makeinfo
+MAKEINFO = /home/edmond/software/oleo/missing makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MOTIF_CFLAGS = 
 MOTIF_LIBS = -lXm
-MSGFMT = /usr/bin/msgfmt
+MSGFMT = 
 PACKAGE = oleo
 POFILES =  en.po nl.po fr.po
-POSUB = po
+POSUB = 
 RANLIB = ranlib
 U = 
 USE_INCLUDED_LIBINTL = no
-USE_NLS = yes
+USE_NLS = no
 VERSION = 1.99.16
 XBAE_CFLAGS = 
 XBAE_LIBS = -lXbae
@@ -201,7 +201,7 @@ ANSI2KNR = ../lib/ansi2knr
 #xbase$U.o mysql$U.o print$U.o \
 #postscript$U.o pcl$U.o epson$U.o \
 #prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-#plotter$U.o legend$U.o
+#plotter$U.o legend$U.o transc_funs$U.o
 oleo_OBJECTS =  parse$U.o \
 byte-compile$U.o eval$U.o ref$U.o \
 decompile$U.o sort$U.o regions$U.o \
@@ -236,7 +236,7 @@ plotter$U.o legend$U.o transc_funs$U.o
 ##xrdb$U.o xbase$U.o mysql$U.o print$U.o \
 ##postscript$U.o pcl$U.o epson$U.o \
 ##prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-##plotter$U.o legend$U.o
+##plotter$U.o legend$U.o transc_funs$U.o
 #oleo_OBJECTS =  parse$U.o \
 #byte-compile$U.o eval$U.o ref$U.o \
 #decompile$U.o sort$U.o regions$U.o \
@@ -253,7 +253,7 @@ plotter$U.o legend$U.o transc_funs$U.o
 #date$U.o xrdb$U.o mysql$U.o print$U.o \
 #postscript$U.o pcl$U.o epson$U.o \
 #prtext$U.o afm$U.o mdi$U.o gsl$U.o \
-#plotter$U.o legend$U.o
+#plotter$U.o legend$U.o transc_funs$U.o
 oleo_DEPENDENCIES =  ../lib/liboleo.a ../intl/libintl.a
 #oleo_DEPENDENCIES =  ../lib/liboleo.a ../intl/libintl.a
 oleo_LDFLAGS = 
