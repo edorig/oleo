@@ -3077,7 +3077,7 @@ sp_bar_end_graph(Multigrapher *mg)
 
 	ys = (double *)calloc(nsets * num, sizeof(double));
 #define	Y_VALUE(a,b)	ys[nsets * a + b]
-
+	/* There is a bug there; the data end up completely mixed on the bar charts */ 
 	for (r = 0; r < nsets; r++)
 		dsvalid[r] = 0;
 	for (i = 0; i < mg->npoints; i++) {
@@ -3088,7 +3088,9 @@ sp_bar_end_graph(Multigrapher *mg)
 			Y_VALUE(r,n) = 0.0;
 		else
 			Y_VALUE(r,n) = mg->data[i].y;
-/*		fprintf(stderr, "Data[%d,%d] = %f\n", r, n, mg->data[i].y);	*/
+		/*
+		fprintf(stderr, "Data[%d,%d] = %f\n", r, n, mg->data[i].y);
+                */ 	
 		dsvalid[r]++;
 	}
 
@@ -3131,32 +3133,47 @@ sp_bar_end_graph(Multigrapher *mg)
 	 * Go over points in the "wrong" order : first we take all the first
 	 * points of all datasets, then the second points of all datasets, ..
 	 */
-	for (i=0; i<num; i++) {
-		for (r = 0; r < nsets; r++) {
-			pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
-			x = TO_X(i);
-			if (ymax) {
-				if (r == 0) {
-					/* The first point in this set */
-					pl_fbox_r(mg->plotter,
-						TO_X(i), 0.0,
-						TO_X(i + 0.6), Y_VALUE(r,i) / ymax * PLOT_SIZE);
-				} else {
-					/* Not the first point in this set */
-					int ii;
-					double	s = 0.0;
-
-					for (ii=0; ii<r; ii++)
-						s += Y_VALUE(ii,i);
-						
-					pl_fbox_r(mg->plotter,
-						TO_X(i), s / ymax * PLOT_SIZE,
-						TO_X(i + 0.6), (s + Y_VALUE(r,i)) / ymax * PLOT_SIZE);
-				}
-			}
+	if (stacked) {
+	  for (i=0; i<num; i++) {
+	    for (r = 0; r < nsets; r++) {
+	      pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
+	      x = TO_X(i);
+	      if (ymax) {
+		if (r == 0) {
+		  /* The first point in this set */
+		  pl_fbox_r(mg->plotter,
+			    TO_X(i), 0.0,
+			    TO_X(i + 0.6), Y_VALUE(r,i) / ymax * PLOT_SIZE);
+		} else {
+		  /* Not the first point in this set */
+		  int ii;
+		  double	s = 0.0;
+		  
+		  for (ii=0; ii<r; ii++)
+		    s += Y_VALUE(ii,i);
+		  
+		  pl_fbox_r(mg->plotter,
+			    TO_X(i), s / ymax * PLOT_SIZE,
+			    TO_X(i + 0.6), (s + Y_VALUE(r,i)) / ymax * PLOT_SIZE);
 		}
+	      }
+	    }
+	  }
+	} else {
+	  /* Non stacked bar chart */
+	  for (i=0; i<num; i++) {
+	    for (r = 0; r < nsets; r++) {
+	      pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
+	      x = TO_X(i);
+	      if (ymax) {
+		fprintf(stderr,"i=%d n=%d YVALUE=%f\n",i,r,Y_VALUE(r,i)); 
+		 pl_fbox_r(mg->plotter,
+			    TO_X(i+0.6*r/nsets), 0.0,
+			   TO_X(i + 0.6*(r+1)/nsets), Y_VALUE(r,i) / ymax * PLOT_SIZE);
+	      }
+	    }
+	  }
 	}
-
 #if 1
 	/* General Title at the top and in the middle*/
 	if (mg->title) {

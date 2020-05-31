@@ -124,7 +124,7 @@ for dir in "$x_libraries" "${prefix}/lib" /usr/lib /usr/local/lib \
 	   /home/SciPlot*/lib /usr/SciPlot*/lib /opt/SciPlot*/lib \
            "${prefix}"/*/lib /usr/*/lib /usr/local/*/lib \
            "${prefix}"/lib/* /usr/lib/* /usr/local/lib/*; do
-if test -d "$dir" && test "`ls $dir/libSciPlot.* 2> /dev/null`" != ""; then
+if test -d "$dir" && test "`ls $dir/libsciplot.* 2> /dev/null`" != ""; then
 ice_cv_sciplot_libraries="$dir"
 break
 fi

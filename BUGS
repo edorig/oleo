@@ -1,7 +1,15 @@
-Build 
+Build
+=====
 the mktime test in configure fails miserably 
 the configure script generates a buggy texi2html perl script. 
-SciPlot is not found by configure
+SciPlot is not found by configure.
+MySQL is not found by configure. 
+
+Normally, these errors are now eliminated from the configure script.
+Don't try to regenerate a configure script with automake,
+the resulting Makefile will get stuck in a loop calling configure.
+Some corrections have been made in configure.in and sciplot.m4 but they
+are not sufficient to generate a proper ./configure script.
 
 
 Running Oleo
@@ -196,3 +204,4 @@ is still to be shown.
 
 Only stacked bar charts are possible.
 
+The data get completely mixed up in the bar charts.
