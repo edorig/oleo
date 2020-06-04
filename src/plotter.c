@@ -3059,10 +3059,10 @@ sp_bar_end_graph(Multigrapher *mg)
 	/* How many items ? */
 	nsets = mg->datasetnum;
 	dsvalid = (int *)calloc(nsets, sizeof(int));
-
-/*	fprintf(stderr, "sp_bar_end_graph() : %d datasets, overall %d points\n",
+# if 1
+	fprintf(stderr, "sp_bar_end_graph() : %d datasets, overall %d points\n",
 		mg->datasetnum, mg->npoints);
-*/
+#endif 
 
 	for (r = 0; r < nsets; r++)
 		dsvalid[r] = 0;
@@ -3076,8 +3076,9 @@ sp_bar_end_graph(Multigrapher *mg)
 			num = dsvalid[r];
 
 	ys = (double *)calloc(nsets * num, sizeof(double));
-#define	Y_VALUE(a,b)	ys[nsets * a + b]
-	/* There is a bug there; the data end up completely mixed on the bar charts */ 
+#define	Y_VALUE(a,b)	ys[num * a + b]
+	/* EO: There was nsets before, which was mixing up completely the data. 
+	   I will try with num instead */ 
 	for (r = 0; r < nsets; r++)
 		dsvalid[r] = 0;
 	for (i = 0; i < mg->npoints; i++) {
@@ -3088,9 +3089,9 @@ sp_bar_end_graph(Multigrapher *mg)
 			Y_VALUE(r,n) = 0.0;
 		else
 			Y_VALUE(r,n) = mg->data[i].y;
-		/*
+#if 1		
 		fprintf(stderr, "Data[%d,%d] = %f\n", r, n, mg->data[i].y);
-                */ 	
+#endif
 		dsvalid[r]++;
 	}
 
@@ -3139,6 +3140,7 @@ sp_bar_end_graph(Multigrapher *mg)
 	      pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
 	      x = TO_X(i);
 	      if (ymax) {
+		fprintf(stderr,"i=%d n=%d YVALUE=%f\n",i,r,Y_VALUE(r,i));
 		if (r == 0) {
 		  /* The first point in this set */
 		  pl_fbox_r(mg->plotter,
