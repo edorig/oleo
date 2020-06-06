@@ -54,7 +54,8 @@ void sp_legend_draw(Multigrapher *mg)
         case SP_PLOT_XY:
         case SP_PLOT_PIE:
                 break;
-	case SP_PLOT_BAR: 
+	case SP_PLOT_BAR:
+	  break; /* EO: See if this does sensible things */ 
         default:
                 return;	/* No legend */
         }
@@ -84,13 +85,14 @@ void sp_legend_draw(Multigrapher *mg)
 			i++, y -= POS_Y_INC * PLOT_SIZE) {
 		if (mg->legend[i]) {
 			int	ly = y + 0.0125 * PLOT_SIZE;
-
+			/* This may not give the right color with a bar chart */ 
 			pl_colorname_r(mg->plotter, colorstyle[(i-1) % NO_OF_LINEMODES]);
 			pl_fline_r(mg->plotter,
 					POS_X_MIN_LINE * PLOT_SIZE, ly,
 					POS_X_MAX_LINE * PLOT_SIZE, ly);
 			pl_fmove_r(mg->plotter, POS_X_MIN_TXT * PLOT_SIZE, y);
 			pl_alabel_r(mg->plotter, 'l', 'x', mg->legend[i]);
+			/* In the case of the bar graph, this should be replaced by a box of the right color */ 
 			pl_fmarker_r(mg->plotter,
 				(POS_X_MIN_LINE + POS_X_MAX_LINE) * PLOT_SIZE / 2, ly,
 				4 + i, PLOT_SIZE * 0.02);

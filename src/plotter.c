@@ -3054,7 +3054,7 @@ sp_bar_end_graph(Multigrapher *mg)
 	char            ymord[10]; 
 	CELL            *cp;
 	struct rng      rngx;
-	int		stacked = 1;				/* FIX ME only stacked for now */
+	int		stacked = 0;				/* FIX ME only stacked for now */
 
 	/* How many items ? */
 	nsets = mg->datasetnum;
@@ -3077,8 +3077,7 @@ sp_bar_end_graph(Multigrapher *mg)
 
 	ys = (double *)calloc(nsets * num, sizeof(double));
 #define	Y_VALUE(a,b)	ys[num * a + b]
-	/* EO: There was nsets before, which was mixing up completely the data. 
-	   I will try with num instead */ 
+	/* a=set index, 0<=b<=num-1, y value of b-th element in a-th set*/ 
 	for (r = 0; r < nsets; r++)
 		dsvalid[r] = 0;
 	for (i = 0; i < mg->npoints; i++) {
@@ -3089,7 +3088,7 @@ sp_bar_end_graph(Multigrapher *mg)
 			Y_VALUE(r,n) = 0.0;
 		else
 			Y_VALUE(r,n) = mg->data[i].y;
-#if 1		
+#if 0		
 		fprintf(stderr, "Data[%d,%d] = %f\n", r, n, mg->data[i].y);
 #endif
 		dsvalid[r]++;
@@ -3137,10 +3136,9 @@ sp_bar_end_graph(Multigrapher *mg)
 	if (stacked) {
 	  for (i=0; i<num; i++) {
 	    for (r = 0; r < nsets; r++) {
-	      pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
+	      pl_fillcolorname_r(mg->plotter, colorstyle[r % NO_OF_LINEMODES]);
 	      x = TO_X(i);
 	      if (ymax) {
-		fprintf(stderr,"i=%d n=%d YVALUE=%f\n",i,r,Y_VALUE(r,i));
 		if (r == 0) {
 		  /* The first point in this set */
 		  pl_fbox_r(mg->plotter,
@@ -3165,10 +3163,9 @@ sp_bar_end_graph(Multigrapher *mg)
 	  /* Non stacked bar chart */
 	  for (i=0; i<num; i++) {
 	    for (r = 0; r < nsets; r++) {
-	      pl_fillcolorname_r(mg->plotter, colors[r % NO_OF_COLORS]);
+	      pl_fillcolorname_r(mg->plotter, colorstyle[r % NO_OF_LINEMODES]);
 	      x = TO_X(i);
 	      if (ymax) {
-		fprintf(stderr,"i=%d n=%d YVALUE=%f\n",i,r,Y_VALUE(r,i)); 
 		 pl_fbox_r(mg->plotter,
 			    TO_X(i+0.6*r/nsets), 0.0,
 			   TO_X(i + 0.6*(r+1)/nsets), Y_VALUE(r,i) / ymax * PLOT_SIZE);

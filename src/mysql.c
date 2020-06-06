@@ -117,8 +117,13 @@ do_mysql_query(struct value *p)
 		io_error_msg("Database Access requires db name and user name");
 		return;
 	}
-	/* EO: The parameters are silly. The password is set to "baraka". The port is ser to 118 (used for sqlserv). The Unix socket name is wrong, and the clientflag too. This is only to make this module compile when MariaDB/Mysql is present. */  
-	if (mysql_real_connect(&db, Global->DatabaseGlobal->host, Global->DatabaseGlobal->user, "baraka",Global->DatabaseGlobal->name,118,"socket",0)
+	if (mysql_init(&db)==NULL) {
+	  io_error_msg("MySQL: Memory Full");
+	  return;
+	}
+	/* mysql_options(&db,MYSQL_READ_DEFAULT_GROUP,"oleo"); */  
+	/* see doc. for my_sql_real_connect. We set password, unix_socket to NULL and port to 0 so that they can be overridden by the call to mysql_options. */  
+	if (mysql_real_connect(&db, Global->DatabaseGlobal->host, Global->DatabaseGlobal->user, NULL,NULL,0,NULL,0)
 			== NULL) {
 		io_error_msg("MySQL error '%s'\n", mysql_error(&db));
 		return;		/* FIX ME */
@@ -235,8 +240,12 @@ MySQLRead(void)
 
 	char *sql = "select * from koers";
 	int in_row = curow, in_col = cucol;
+	if (!mysql_init(&db)) {
+	  fprintf(stderr,"Memory Full\n");
+	    return;
+	} 
 	/* same as above with the user set to bofh. */
-	if (mysql_real_connect(&db, "localhost", "bofh","","test",118,"socket",0) == NULL) {
+	if (mysql_real_connect(&db, NULL, NULL,"",NULL,0,NULL,0) == NULL) {
 		fprintf(stderr, "MySQL error '%s'\n", mysql_error(&db));
 		return;
 	}

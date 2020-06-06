@@ -45,12 +45,13 @@ With a fr_FR.ISO8859-1 locale and CDE, the accented characters are displayed cor
 printing
 --------
 See above for non-C locale.
-Printing to file in ps format results in lines overwritten on each other. Editing the PS file, and doubling the ordinates shift produces a legible file. The part of postscript.c that calculate line heights contains an error. 
+Printing to file in ps format resulted in lines overwritten on each other. Editing the PS file, and doubling the ordinates shift produces a legible file. The part of postscript.c that calculate line heights contains an error. 
 I have doubled the line height in postscript.c and now lines are not overwritten. Don't try to print more than 96 lines.
 
-Printing UTF-8 or ISO8859-1 characters produces garbage.
-Printing in text format causes a coredump. surprising as prtext.c does nothing.
-GDB backtrace is
+Printing UTF-8 characters produces garbage.
+Printing in text format caused a coredump. corrected. 
+surprising as prtext.c did nothing.
+GDB backtrace was 
 
 0x00005555555bdc68 in print_region_cmd (print=0x7fffffffd5b8, 
     fp=0x55555592c8a0) at print.c:352
@@ -59,13 +60,13 @@ GDB backtrace is
 
 a message AfmFontWidth:failed is visible. This is solved, the problem was an undefined function in the Driver for Text printing. 
 
-Accented characters don't print correctly. é is represented as \351
+Accented characters did't print correctly. é was represented as \351
 and è as \350 in the Motif interface. 
 When printing, Ø appears in the place of é, Lslash in the place of è. PostScript documentation indicates that in standard encoding 
 351 is Oslash 350 Lslash. In Isolatin1 Encoding é is 351 è is 350. 
-So Oleo is using wrongly the standard Encoding in Postscript files.
+So Oleo was using wrongly the standard Encoding instead of Isolatin1 in Postscript files.
 
-Borrowing this code from XFig EPS files solves the issue.
+Borrowing this code from XFig EPS files solved the issue.
 
 /reencdict 12 dict def /ReEncode { reencdict begin
 /newcodesandnames exch def /newfontname exch def /basefontname exch def
@@ -112,15 +113,15 @@ newfontname newfont definefont pop end } def
 %%EndProlog
 /CourierISOLatin1 findfont 12 scalefont setfont
 
-This amounts to reencode the font files so that it uses ISO8859-1.
-Oleo does that, but the default font is /CGTimes instead of /Times-Roman. 
-As the postscript interpreter does not find the font, it uses the standard encoding. Changing the default font to Time-Roman solves the problem. 
+This amounted to reencode the font files so that it uses ISO8859-1.
+Oleo actually did that, but the default font was /CGTimes instead of /Times-Roman. 
+As the postscript interpreter could not find the font, it uses the standard encoding. Changing the default font to Time-Roman solved the problem. 
 
 Format selection for files
 --------------------------
-Choosing sc,sylk,dbf format in "Save As" or "Open" menu causes a crash. 
-This is partially solved. The char pattern[10] was too short to accomodate
-"*.[Cc][Ss][Vv]" (2+3*4=14 characters).
+Choosing sc,sylk,dbf format in "Save As" or "Open" menu caused a crash. 
+ The char pattern[10] was too short to accomodate
+"*.[Cc][Ss][Vv]" (2+3*4=14 characters). corrected. 
 
 Saving to csv still  caused a crash.
 
@@ -148,6 +149,7 @@ with backtrace
 
 The cause was an unimplemented function to write CSV files.
 Using the function to write lists with ',' as separator solved this problem.
+It could be more practical to use another symbol such as ';' or '/' or '|' or '¦' as separator. Commas can be used to separate thousands in numbers or in text to separate an author name from its initial. 
 
 Formats:
 -------
@@ -192,16 +194,18 @@ insert_cell_attr (struct rng * rng, char * attr) in io-edit.c
 Bar charts
 ==========
 
-There are no legends for x and y axis in bar charts.
-The data along x axis is not indicated, i. e. if we want to plot
-temperatures versus month, the month labels along y will be missing.
+There were no legends for x and y axis in bar charts. corrected 
+The data along x axis was not indicated, i. e. if we wanted to plot
+temperatures versus month, the month labels along x would be missing. corrected
 
-Strangely, the file plotter.c contains code to do that, but it is between
-#if 0 / endif
 
-This code has been reactivated, and the x-axis data is shown. The y axis data
-is still to be shown.
+The scale on y axis was not shown. Now, Oleo displays the integer times power of ten closest to the maximum valie of y data. 
 
-Only stacked bar charts are possible.
+Only non stacked bar charts are possible. The toggle Stacked/Non-stacked is inactive. Stacked bar charts can be restored by changing stacked=0 into stacked=1 in plotter.c 
 
-The data get completely mixed up in the bar charts.
+The data was getting completely mixed up in the bar charts. This is corrected.
+
+The dataset legends in the bar charts were shown except for the last dataset. corrected. 
+The symbols and the colors were wrong: the Bar Chart was not using the color code of XY chart. corrected. 
+
+Negative values are set to zero. This is sensible with a stacked bar chart plot, but can be avoided in a non-stacked plot. 

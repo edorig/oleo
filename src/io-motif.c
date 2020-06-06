@@ -1046,7 +1046,7 @@ void ConfigureGraphOk(Widget w, XtPointer client, XtPointer call)
 #ifdef	FREE_TF_STRING
 	XtFree(s);
 #endif
-
+	/* Data 4 */ 
 	p = s = XmTextFieldGetString(cw->c);
 	if (strlen(s)) {
 		if ((r = parse_cell_or_range(&p, &rngx)) == 0)
@@ -1063,7 +1063,13 @@ void ConfigureGraphOk(Widget w, XtPointer client, XtPointer call)
 		XtFree(s);
 #endif
 	}
-
+	/* Title for data 4 ? */
+       	s = XmTextFieldGetString(cw->te);
+	graph_set_data_title(4, s);
+#ifdef	FREE_TF_STRING
+	XtFree(s);
+	#endif
+	
 	p = s = XmTextFieldGetString(cw->d);
 	if (strlen(s)) {
 		if ((r = parse_cell_or_range(&p, &rngx)) == 0)
