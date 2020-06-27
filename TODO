@@ -19,6 +19,7 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
 	(done) connect the plot.c functionality (GNU Plotutils) to graph.c
 	(todo) make sure all the variables can get saved
 	(todo) make sure all flags can be controlled through GUI
+	(todo) Let the user choosed between stacked/non-stacked bar charts. 
 	(done) put Plotutils graph in Motif XmScrolledWindow
 
 * Sorting
@@ -109,11 +110,20 @@ $Id: TODO,v 1.37 2000/07/25 12:56:32 danny Exp $
         EO: This does not look like a good idea. First, some
 	functions of the standard C library can be included in Oleo
 	[erf, gamma, hyperbolic direct and inverse functions (done),
-	Bessel functions (todo)]. Second, there are other
+	Bessel functions (done)]. Second, there are other
 	numerical libraries such as CERNLIB, SLATEC, CEPHES (the first
 	two in Fortran, the last one in C) that could provide more
-	reliable code.  
-
+	reliable code than GSL. Cernlib is callable from C with cfortran.h.
+	The difficulty would be amending the old configure
+	script to detect it. For some functions, formulas
+	in Abramowitz and Stegun or other math litterature can be used
+	in case no math library is installed.
+	
+* Statistical functions
+  	(todo) add the skewness and kurtosis to the statistical functions.
+	(todo) Cumulative distribution functions for Student's t-distribution,
+	       chi-square, Snedecor's F distribution....
+	       
 * Import/Export Filters.
  - SYLK
 	(done) don't flunk out on reading Excel files

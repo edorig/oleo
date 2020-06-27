@@ -1,0 +1,58 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;Erow();K1
+C;r2;Erow();K2
+C;r3;Erow();K3
+C;r4;Erow();K4
+C;r5;Erow();K5
+C;r6;Erow();K6
+C;r7;Erow();K7
+C;r8;Erow();K8
+C;c2;r1;Esin(row());K0.841470984807896
+C;r2;Esin(row());K0.909297426825681
+C;r3;Esin(row());K0.141120008059867
+C;r4;Esin(row());K-0.756802495307928
+C;r5;Esin(row());K-0.958924274663138
+C;r6;Esin(row());K-0.279415498198925
+C;r7;Esin(row());K0.656986598718789
+C;r8;Esin(row());K0.989358246623381
+C;c3;r1;Ecos(row());K0.540302305868139
+C;r2;Ecos(row());K-0.416146836547142
+C;r3;Ecos(row());K-0.989992496600445
+C;r4;Ecos(row());K-0.653643620863611
+C;r5;Ecos(row());K0.283662185463226
+C;r6;Ecos(row());K0.960170286650365
+C;r7;Ecos(row());K0.753902254343304
+C;r8;Ecos(row());K-0.145500033808613
+O;status 2
+W;N1;A5 1;C7 0 7;Ostandout
+G0,1,1,1,8
+G1,2,1,2,8
+G2,3,1,3,8
+GDx"entier"
+GDy"ligne trigo"
+Gt0
+Gt1
+Gt2
+Gt3
+Gt4
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00
+Gm10
+Dn
+Dh
+Du
+E

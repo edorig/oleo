@@ -117,6 +117,8 @@ This amounted to reencode the font files so that it uses ISO8859-1.
 Oleo actually did that, but the default font was /CGTimes instead of /Times-Roman. 
 As the postscript interpreter could not find the font, it uses the standard encoding. Changing the default font to Time-Roman solved the problem. 
 
+Postscript printing of plots fails. Empty file if from plotutils, coredump if from SciPlot. Oddity: ploututils prints successfully to fig,png,gif,tek. 
+
 Format selection for files
 --------------------------
 Choosing sc,sylk,dbf format in "Save As" or "Open" menu caused a crash. 

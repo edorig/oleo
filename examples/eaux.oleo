@@ -1,0 +1,106 @@
+# This file was created by GNU Oleo
+# format 2.1 (requires Oleo 1.99.9 or higher)
+F;DGFL8
+O;auto;background;noa0;ticks 1
+C;c1;r1;K"Ions"
+C;r2;K"Ca++"
+C;r3;K"Mg++"
+C;r4;K"Na+"
+C;r5;K"K+"
+C;r6;K"HCO3-"
+C;r7;K"SO4--"
+C;r8;K"Cl-"
+C;r9;K"NO3-"
+C;r10;K"F-"
+C;c2;r1;K"Salvetat"
+C;r2;K160
+C;r3;K7.5
+C;r4;K5
+C;r5;K2
+C;r6;K530
+C;r7;K20
+C;r8;K5
+C;r9;K0
+C;r10;K0
+C;c3;r1;K"Montclar"
+C;r2;K44.399999999999998
+C;r3;K1
+C;r4;K1.3
+C;r5;K0.5
+C;r6;K137
+C;r7;K5
+C;r8;K1
+C;r9;K4.4
+C;r10;K0.05
+C;c4;r1;K"Evian"
+C;r2;K80
+C;r3;K26
+C;r4;K6.5
+C;r5;K1
+C;r6;K360
+C;r7;K14
+C;r8;K10
+C;r9;K3.799999999999999
+C;r10;K0
+C;c5;r1;K"Source des Pins"
+C;r2;K13
+C;r3;K6.7
+C;r4;K29
+C;r5;K0
+C;r6;K105
+C;r7;K6
+C;r8;K33
+C;r9;K0
+C;r10;K0.32
+C;c6;r1;K"Volvic"
+C;r2;K12
+C;r3;K8
+C;r4;K12
+C;r5;K6
+C;r6;K74
+C;r7;K9
+C;r8;K15
+C;r9;K7.299999999999998
+C;r10;K0
+C;c7;r1;K"Roche des Écrins"
+C;r2;K66
+C;r3;K11
+C;r4;K1.399999999999999
+C;r5;K0.4
+C;r6;K173
+C;r7;K59
+C;r8;K1
+C;r9;K1.5
+C;r10;K0
+O;status 2
+W;N1;A10 7;C7 0 7;Ostandout
+G0,1,2,1,10
+G1,2,2,2,10
+G2,3,2,3,10
+G3,4,2,4,10
+G4,7,2,7,10
+GDx"Ions (mg/l)"
+GDy"concentration"
+Gt0"Ions (mg/l)"
+Gt1"Salvetat"
+Gt2"Montclar"
+Gt3"Evian"
+Gt4"Roche des Écrins"
+Gt5
+Gt6
+Gt7
+Gt8
+Gt9
+Gr000.000000
+Gr010.000000
+Gr100.000000
+Gr110.000000
+Ga01
+Ga11
+Go0
+Gm00
+Gm10
+Dn
+Dh
+Du
+E

@@ -292,20 +292,49 @@ The cube root of @var{val}.
 The error function (integral of the Gaussian)  of @var{val}.
 @tex
 $${\rm erf}(x)={2 \over \sqrt{\pi}}\int_0^x e^{-t^2} dt$$  
-@end tex 
+@end tex
+
 @item gamma(@var{val})
 @findex gamma
 The gamma function (generalized factorial)  of @var{val}.
 @tex
 $$\Gamma(x)=\int_0^{+\infty} t^{x-1} e^{-t} dt $$
+@end tex
+
+@item beta(@var{val1},@var{val2})
+@findex beta
+The beta function of @var{val1} and @var{val2}.
+@tex
+$$\Beta(x,y)={{\Gamma(x)\Gamma(y)} \over {\Gamma(x+y)}} $$ 
+@end tex
+
+@item binomial(@var{val1},@var{val2})
+@findex beta
+The binomial coefficient of @var{val1} and @var{val2}, i. e. the number
+of ways to pick @var{val2} objects among @var{val1}.
+@tex
+$${\rm C}_n^m = {{n!}\over {m! (n-m)!} $$
 @end tex 
+
+@item studentA(@var{var1},@var{val2})
+@findex studentA
+The cumulative distribution function of the Student t-distribution with
+@var{val2} degrees of freedom, i. e. the probability that the normalized
+Student random variable will be less than @var{val1}.
+
+@item chi2Q(@var{var1},@var{val2})
+@findex chi2Q
+The cumulative distribution function of the Chi squared distribution with
+@var{val2} degrees of freedom, i. e. the probability that the normalized
+Chi squared random variable will be greater than @var{val1}.
+
 @item besj0(@var{val})
 @findex besj0 
 The Bessel function of the first kind J0  of @var{val}.
 
 @item besy0(@var{val})
 @findex besy0 
-The Bessel function of the second kind Y0  of @var{val}. Undefined when @var{val} is
+The Bessel function of the second kind Y0 (also called Weber function)   of @var{val}. Undefined when @var{val} is
 negative. 
 
 @item besj1(@var{val})
@@ -328,6 +357,14 @@ The Bessel function J@var{n} (with integer parameter @var{n}) of
 The Bessel function of the second kind Y@var{n} (with integer parameter @var{n}) of
 @var{val}. Undefined when @var{val} is negative. 
 
+@item besi0(@var{val})
+@findex besi0 
+The Modified Bessel function of the first kind I0  of @var{val}.
+
+@item besk0(@var{val})
+@findex besk0 
+The Bessel function of the third kind (or MacDonald function) K0  of @var{val}. Undefined when @var{val} is
+negative. 
 
 @end table
 

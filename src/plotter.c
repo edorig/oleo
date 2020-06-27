@@ -3059,7 +3059,7 @@ sp_bar_end_graph(Multigrapher *mg)
 	/* How many items ? */
 	nsets = mg->datasetnum;
 	dsvalid = (int *)calloc(nsets, sizeof(int));
-# if 1
+# if 0
 	fprintf(stderr, "sp_bar_end_graph() : %d datasets, overall %d points\n",
 		mg->datasetnum, mg->npoints);
 #endif 
