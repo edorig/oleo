@@ -201,7 +201,7 @@ The data along x axis was not indicated, i. e. if we wanted to plot
 temperatures versus month, the month labels along x would be missing. corrected
 
 
-The scale on y axis was not shown. Now, Oleo displays the integer times power of ten closest to the maximum valie of y data. 
+The scale on y axis was not shown. Now, Oleo displays the integer times power of ten closest to the maximum value of y data. 
 
 Only non stacked bar charts are possible. The toggle Stacked/Non-stacked is inactive. Stacked bar charts can be restored by changing stacked=0 into stacked=1 in plotter.c 
 
@@ -210,4 +210,4 @@ The data was getting completely mixed up in the bar charts. This is corrected.
 The dataset legends in the bar charts were shown except for the last dataset. corrected. 
 The symbols and the colors were wrong: the Bar Chart was not using the color code of XY chart. corrected. 
 
-Negative values are set to zero. This is sensible with a stacked bar chart plot, but can be avoided in a non-stacked plot. 
+Negative values were set to zero. While this is good for a stacked bar chart, it should not be done with non-stacked bar charts. corrected.  

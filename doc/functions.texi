@@ -328,6 +328,12 @@ The cumulative distribution function of the Chi squared distribution with
 @var{val2} degrees of freedom, i. e. the probability that the normalized
 Chi squared random variable will be greater than @var{val1}.
 
+@item kolmQ(@var{val})
+@findex kolmQ
+The cumulative distribution function of the Kolmogorov distribution
+i. e. the probability that the Kolmogorov random variable
+will be greater than @var{val}.
+
 @item besj0(@var{val})
 @findex besj0 
 The Bessel function of the first kind J0  of @var{val}.
@@ -365,6 +371,24 @@ The Modified Bessel function of the first kind I0  of @var{val}.
 @findex besk0 
 The Bessel function of the third kind (or MacDonald function) K0  of @var{val}. Undefined when @var{val} is
 negative. 
+
+@item ellK(@var{val})
+@findex ellK
+The complete elliptic integral of the first kind K of
+@var{val}. Undefined when @var{val} is greater than one.
+@tex
+$$K(m)=\int_0^{\pi/2} {1\over \sqrt{1-m\sin^2 theta}}  d\theta $$
+@end tex
+
+@item ellE(@var{val})
+@findex ellE
+The complete elliptic integral of the second kind E of
+@var{val}. Undefined when @var{val} is greater than one.
+@tex
+$$E(m)=\int_0^{\pi/2} \sqrt{1-m\sin^2 theta} d\theta $$
+@end tex
+
+
 
 @end table
 

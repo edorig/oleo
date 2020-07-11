@@ -25,6 +25,10 @@ double bessk0(double);
 double lambertW(double);
 double chisquare(double,int);
 double student(double,int); 
+double kolmogorov(double);
+double ellk(double);
+double ellec(double);
+
 
 /* Modified Bessel function I_0(x) see Abramowitz and Stegun Chapter 9 */
 double bessi0(double x)
@@ -69,6 +73,75 @@ double bessk0(double x)
  return(y);
 }
 
+/* Computes the complete elliptic integral of the second kind E(m)  using approximation 17.3.36 of 
+   Abramowitz and Stegun p. 591. Accuracy is 2e-8. Tested against the table 17.1  p. 603  */
+
+
+double ellec(double m)
+{
+  double m1;
+  double ec; 
+  const double a[4]={0.4432514153,
+		     0.05260601220,
+		     0.04757383546,
+		     0.01736506451
+  }; 
+  const double b[4]={0.24998368310,
+		     0.09200180037,
+		     0.04069697526,
+		     0.00526449639
+  };
+  if (m>1.0) return (NAN); 
+  if (m>=0.0) {
+    m1=1.0-m;
+  } else {
+    m1=1.0/(1.0-m); 
+      };
+  
+  ec=(((a[4]*m1+a[3])*m1+a[2])*m1+a[1])*m1+1.0-(((b[3]*m1+b[2])*m1+b[1])*m1+b[0])*m1*log(m1);
+  
+  if (m>=0.0) {
+    return(ec);
+  } else {
+    return (sqrt(1.0-m)*ec);
+  }
+}
+
+/* Computes the complete elliptic integral of the first kind using approximation 17.3.34 of 
+   Abramowitz and Stegun p. 591. Accuracy is 2e-8. Tested against the table 17.1  p. 603. m<=1.0  */ 
+double ellk(double m)
+{
+  double m1;
+  double k; 
+  const double a[5]={1.38629436112,
+		     0.09666344259,
+		     0.03590092383,
+		     0.03742563713,
+		     0.01451196212
+  }; 
+  const double b[5]={0.5,
+		     0.12498593597,
+		     0.06880248576,
+		     0.03328355346,
+		     0.00441787012
+  };
+  if (m>1.0) return(NAN); 
+  if (m>=0.0) {
+    m1=1.0-m;
+  } else {
+    m1=1.0/(1.0-m);
+  };
+  
+  k=(((a[4]*m1+a[3])*m1+a[2])*m1+a[1])*m1+a[0]-((((b[4]*m1+b[3])*m1+b[2])*m1+b[1])*m1+b[0])*log(m1);
+
+  if (m>=0.0) {
+  return(k);
+  } else {
+    return (k/sqrt(1.0-m));
+  }
+}
+
+
 /* Calculates the principal branch of the Lambert W function, i.e. the unique solution of W(x) exp(W(x))=x with W(x)>=-1 */
 double lambertW(double x)
 {
@@ -86,7 +159,6 @@ double lambertW(double x)
       /* Newton method */ 
       u=u-(u-x*exp(-u))/(1+u); 
     }
-    fprintf(stderr,"Newton gives %f\n",u); 
     return(u); 
   } else {
     u=log(x);
@@ -95,7 +167,6 @@ double lambertW(double x)
       u=log(x)-log(u);
       i++; 
     }
-    fprintf(stderr,"Cobweb gives %f\n",u);
     return(u); 
   } 
 }
@@ -173,6 +244,31 @@ double student(double t,int n)
   }
     
 }
+
+/* Algorithm for Kolmogorov distribution: Paul van Mulbregt arXiv:1803.00426 */
+double kolmogorov(double x)
+{
+  double q,s;
+  int i,k;
+  s=0; 
+  if (x>=0.8) {
+    q=exp(-2.0*x*x);
+    k=1; 
+    for (i=1;i<=20;i++) {
+      s+=(double)k*pow(q,i*i);
+      k=-k;
+    }
+    return (2*s); 
+  } else {
+    q=exp(-M_PI*M_PI/(8.0*x*x));
+    for (i=1;i<=41;i+=2) {
+      s+=pow(q,i*i);
+    }
+return(1.0-(sqrt(2*M_PI)*s/x)); 
+  }
+
+}
+
 
 /* Functions from the C Library in SVr4,  4.3BSD,  POSIX.1-2001,
    and POSIX.1-2008 */ 
@@ -260,12 +356,20 @@ void do_student(p)
   p->type=TYP_FLT; 
 }
 
+void do_kolmogorov(p)
+     struct value *p;
+{
+  double arg0=p[0].Float;
+  p->Float=kolmogorov(arg0);
+  p->type=TYP_FLT; 
+}
+
 void do_gamma(p)
      struct value *p;
 {
   double arg0=p[0].Float;
   p->Float=tgamma(arg0);
-  // p->Type= TYP_FLT;
+  p->type= TYP_FLT;
 }
 
 void do_beta(p)
@@ -283,6 +387,22 @@ void do_binomial(p)
   p->Float=exp(lgamma(arg0+1.0)-lgamma(arg1+1.0)-lgamma(arg0-arg1+1.0));
   p->type=TYP_FLT; 
     }
+
+void do_ellk(p)
+     struct value *p;
+{double arg0=p[0].Float;
+  p->Float=ellk(arg0);
+  p->type=TYP_FLT;
+}
+
+void do_ellec(p)
+     struct value *p;
+{
+  double arg0=p[0].Float;
+  p->Float=ellec(arg0);
+  p->type=TYP_FLT;
+}
+
 void do_j0(p)
      struct value *p;
 {
@@ -359,7 +479,8 @@ struct function transc_funs[]=
     {C_FN1,X_A1,"F",do_lambertw,"lambw"}, 
     {C_FN1,X_A1,"F",do_erf,"erf"},
     {C_FN2,X_A2,"FI",do_chi2,"chi2Q"},
-    {C_FN2,X_A2,"FI",do_student,"studentA"}, 
+    {C_FN2,X_A2,"FI",do_student,"studentA"},
+    {C_FN1,X_A1,"F",do_kolmogorov,"kolmQ"},
     {C_FN1,X_A1,"F",do_gamma,"gamma"},
     {C_FN2,X_A2,"FF",do_beta,"beta"},
     {C_FN2,X_A2,"FF",do_binomial,"binomial"}, 
@@ -371,6 +492,8 @@ struct function transc_funs[]=
     {C_FN2,X_A2,"IF",do_yn,"besyn"},
     {C_FN1,X_A1,"F",do_i0,"besi0"},
     {C_FN1,X_A1,"F",do_k0,"besk0"},
+    {C_FN1,X_A1,"F",do_ellk,"ellK"},
+    {C_FN1,X_A1,"F",do_ellec,"ellE"},
     {0, 0, "", 0, 0},
           };
 

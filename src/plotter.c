@@ -3051,10 +3051,10 @@ sp_bar_end_graph(Multigrapher *mg)
 	int		i, num, r, nsets, *dsvalid, n;
 	double		x, y, y1, y2, ymin, ymax, *ys;
 	double          ylmax; 
-	char            ymord[10]; 
+	char            ymord[20]; 
 	CELL            *cp;
 	struct rng      rngx;
-	int		stacked = 0;				/* FIX ME only stacked for now */
+	int		stacked = 0;				/* FIX ME only non-stacked for now */
 
 	/* How many items ? */
 	nsets = mg->datasetnum;
@@ -3083,8 +3083,8 @@ sp_bar_end_graph(Multigrapher *mg)
 	for (i = 0; i < mg->npoints; i++) {
 		r = mg->data[i].dataset;
 		n = dsvalid[r];
-		/* Negative values will not be shown */ 
-		if (mg->data[i].y <= 0.0)
+		/* Negative values will not be shown in stacked bar charts, but they will be in non-stacked case */ 
+		if (mg->data[i].y <= 0.0 && stacked)
 			Y_VALUE(r,n) = 0.0;
 		else
 			Y_VALUE(r,n) = mg->data[i].y;
@@ -3160,15 +3160,27 @@ sp_bar_end_graph(Multigrapher *mg)
 	    }
 	  }
 	} else {
-	  /* Non stacked bar chart */
+	  /* Non stacked bar chart. ymax>0 is assumed, this will need to be corrected */
 	  for (i=0; i<num; i++) {
 	    for (r = 0; r < nsets; r++) {
 	      pl_fillcolorname_r(mg->plotter, colorstyle[r % NO_OF_LINEMODES]);
 	      x = TO_X(i);
-	      if (ymax) {
-		 pl_fbox_r(mg->plotter,
+	      if (ymax-ymin) {
+		if (ymin>0) {
+		  pl_fbox_r(mg->plotter,
 			    TO_X(i+0.6*r/nsets), 0.0,
-			   TO_X(i + 0.6*(r+1)/nsets), Y_VALUE(r,i) / ymax * PLOT_SIZE);
+			    TO_X(i + 0.6*(r+1)/nsets), (Y_VALUE(r,i)) / ymax * PLOT_SIZE);
+		} else if (ymax>0) { 
+		  /* Bottom of the plot is ymin, so we shift everything */ 
+		  pl_fbox_r(mg->plotter,
+			    TO_X(i+0.6*r/nsets), -ymin/(ymax-ymin)*PLOT_SIZE,
+			    TO_X(i + 0.6*(r+1)/nsets), (Y_VALUE(r,i)-ymin) / (ymax-ymin) * PLOT_SIZE);
+		} else {
+		  /* Both ymax and ymin <0, we so we plot from the top */
+		  pl_fbox_r(mg->plotter,
+			    TO_X(i+0.6*r/nsets),PLOT_SIZE,
+			    TO_X(i + 0.6*(r+1)/nsets), (Y_VALUE(r,i)-ymin)/fabs(ymin)*PLOT_SIZE); 
+		} 
 	      }
 	    }
 	  }
@@ -3203,12 +3215,32 @@ sp_bar_end_graph(Multigrapher *mg)
 #endif
 
 	/* We also have to do the Y-axis label */
-	pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,0.);
-	pl_alabel_r(mg->plotter,'r','c',"0\0"); 
+	if (!stacked) {
+	  if (ymin>0) {
+	    pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,0.);
+	    pl_alabel_r(mg->plotter,'r','c',"0\0");
+	  } else if (ymax>0) {
+	    pl_fline_r(mg->plotter, 0., -ymin/(ymax-ymin)*PLOT_SIZE, PLOT_SIZE, -ymin/(ymax-ymin)*PLOT_SIZE);
+	    pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,-ymin/(ymax-ymin)*PLOT_SIZE);
+	    pl_alabel_r(mg->plotter,'r','c',"0\0");
+	  } else {
+	    pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,PLOT_SIZE);
+	    pl_alabel_r(mg->plotter,'r','c',"0\0");
+	  }  
+	}
+	
+	if (ymax>0) {
 	ylmax=pow(10.,floor(log10(ymax)))*floor(ymax/pow(10.,floor(log10(ymax))));
 	sprintf(ymord,"%.3g",ylmax); 
-	pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,ylmax/ymax*PLOT_SIZE);
-	pl_alabel_r(mg->plotter,'r','c',ymord); 
+	pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,(ylmax-ymin)/(ymax-ymin)*PLOT_SIZE);
+	pl_alabel_r(mg->plotter,'r','c',ymord);
+	} else {
+	  /* everything is negative, so -ymin will be used to define the scale */ 
+	  ylmax=pow(10.,floor(log10(-ymin))*floor(-ymin/pow(10.,floor(log10(-ymin)))));
+	  sprintf(ymord,"%.4g",-ylmax);
+	  pl_fmove_r(mg->plotter,-0.02*PLOT_SIZE,(-ylmax-ymin)/fabs(ymin)*PLOT_SIZE);
+	pl_alabel_r(mg->plotter,'r','c',ymord);
+	}
 	
 #if 1
 	/* Data titles */
