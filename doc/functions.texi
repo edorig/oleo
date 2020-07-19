@@ -280,7 +280,7 @@ and @var{y}; i.e., @w{@code{sqrt(@var{x}*@var{x} + @var{y}*@var{y})}}.
 @ifhtml
 <A NAME="HelpExtramathFunctions">
 @end ifhtml
-See dlmf.nist.gov for definitions. 
+See http://dlmf.nist.gov for definitions. 
 @table @code
 
 @item cbrt(@var{val})
@@ -308,6 +308,11 @@ The beta function of @var{val1} and @var{val2}.
 $$\Beta(x,y)={{\Gamma(x)\Gamma(y)} \over {\Gamma(x+y)}} $$ 
 @end tex
 
+@item ibeta(@var{val1},@var{var2},@var{var3})
+@findex ibeta
+The incomplete beta function of @var{val1},@var{var2} and @var{var3}.
+@tex
+$$\Beta(a,b,x)=\int_0^x t^{a-1}(1-t)^{b-1} dt $$
 @item binomial(@var{val1},@var{val2})
 @findex beta
 The binomial coefficient of @var{val1} and @var{val2}, i. e. the number
@@ -333,6 +338,16 @@ Chi squared random variable will be greater than @var{val1}.
 The cumulative distribution function of the Kolmogorov distribution
 i. e. the probability that the Kolmogorov random variable
 will be greater than @var{val}.
+
+@item fisherQ(@var{val1},@var{val2},@var{val3})
+@findex fisherQ
+The cumulative distribution function of the Fisher-Snedecor (or
+variance-ratio) F-distribution with @var{val1} and @var{val2} degrees of
+freedom i. e. the probability that the F variable (ratio of two
+normalized chi-square distributed random variable) will be greater than
+@var{val3}. @var{val1} is the number of degrees of freedom of the
+chi-square variable in the numerator, while @var{val2} the number of degrees
+of freedom of the chi-squared variable in the denominator.
 
 @item besj0(@var{val})
 @findex besj0 

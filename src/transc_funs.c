@@ -28,7 +28,8 @@ double student(double,int);
 double kolmogorov(double);
 double ellk(double);
 double ellec(double);
-
+double ibeta(double,double,double);
+double fisherQ(double,double,double);
 
 /* Modified Bessel function I_0(x) see Abramowitz and Stegun Chapter 9 */
 double bessi0(double x)
@@ -268,7 +269,42 @@ return(1.0-(sqrt(2*M_PI)*s/x));
   }
 
 }
+/* Incomplete beta function See Abramowitz and Stegun p. 263 Eq. (6.6.1) */ 
+double ibeta(double a,double b,double x)
+{
+  int i;
+  double s,y;
+  /* Eq. (6.6.8) and chapter 15 for series expansion */ 
+  if (x<=0.5) {
+    s=1.0/a;
+    y=1.0;
+    for (i=1;i<=30;i++) {
+      y*=(1.0-b/(double)i)*x;
+      s+=y/((double)i+a);
+    }
+    return (s*pow(x,a));
+  } else {
+    /* Eqs. (6.6.2) and (6.6.3) */  
+    s=1.0/b;
+    y=1.0; 
+    for (i=1;i<=30;i++) 
+      {
+	y*=(1.0-a/(double)i)*(1.0-x);
+	s+=y/((double)i+b);
+      }
+    return (exp(lgamma(a)+lgamma(b)-lgamma(a+b))-s*pow(1.0-x,b));
+  }
+	    
+}
 
+/* Ckecked against the results in table 26.9 p. 986 of A&S */ 
+double fisherQ(double nu1,double nu2,double F)
+{
+  double x,z;
+  x=nu2/(nu2+nu1*F);
+  z=exp(lgamma(0.5*nu1)+lgamma(0.5*nu2)-lgamma(0.5*(nu1+nu2)));
+  return (ibeta(0.5*nu2,0.5*nu1,x)/z); 
+}
 
 /* Functions from the C Library in SVr4,  4.3BSD,  POSIX.1-2001,
    and POSIX.1-2008 */ 
@@ -380,6 +416,24 @@ void do_beta(p)
 	       p->type=TYP_FLT;
 }
 
+void do_ibeta(p)
+     struct value *p;
+{double arg0=p[0].Float;
+  double arg1=p[1].Float;
+  double arg2=p[2].Float;
+  p->Float=ibeta(arg0,arg1,arg2);
+  p->type=TYP_FLT;
+} 
+
+void do_fisherQ(p)
+  struct value *p;
+{double arg0=p[0].Float;
+  double arg1=p[1].Float;
+  double arg2=p[2].Float;
+  p->Float=fisherQ(arg0,arg1,arg2);
+  p->type=TYP_FLT;
+} 
+
 void do_binomial(p)
      struct value *p;
 {double arg0=p[0].Float;
@@ -483,7 +537,9 @@ struct function transc_funs[]=
     {C_FN1,X_A1,"F",do_kolmogorov,"kolmQ"},
     {C_FN1,X_A1,"F",do_gamma,"gamma"},
     {C_FN2,X_A2,"FF",do_beta,"beta"},
-    {C_FN2,X_A2,"FF",do_binomial,"binomial"}, 
+    {C_FN2,X_A2,"FF",do_binomial,"binomial"},
+    {C_FN3,X_A3,"FFF",do_ibeta,"ibeta"},
+    {C_FN3,X_A3,"FFF",do_fisherQ,"fisherQ"},
     {C_FN1,X_A1,"F",do_j0,"besj0"},
     {C_FN1,X_A1,"F",do_j1,"besj1"},
     {C_FN1,X_A1,"F",do_y0,"besy0"},
